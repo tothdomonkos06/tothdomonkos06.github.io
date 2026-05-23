@@ -53,9 +53,17 @@
 <a class="font-code-md text-code-md text-primary dark:text-primary border-b-2 border-primary pb-1 hover:text-primary dark:hover:text-primary transition-all duration-200 scale-95" href="contact.html">Contact</a>
 </div>
 <a href="https://www.linkedin.com/in/domonkos-tóth/" target="_blank" class="bg-primary-container text-on-primary-container font-label-sm text-label-sm px-sm py-xs rounded hover:bg-primary transition-colors hidden md:block">Hire Me</a>
-<button class="md:hidden text-on-surface">
+<button id="mobile-menu-btn" class="md:hidden text-on-surface hover:text-primary transition-colors">
 <span class="material-symbols-outlined">menu</span>
 </button>
+</div>
+<!-- Mobile Menu Dropdown -->
+<div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-surface-container-low border-b border-outline-variant shadow-lg flex-col py-md z-40 gap-xs">
+    <a href="index.html" class="px-gutter py-sm text-on-surface-variant hover:bg-surface-container-highest font-code-md text-code-md border-l-4 border-transparent">Home</a>
+    <a href="portfolio.html" class="px-gutter py-sm text-on-surface-variant hover:bg-surface-container-highest font-code-md text-code-md border-l-4 border-transparent">Portfolio</a>
+    <a href="aboutme.html" class="px-gutter py-sm text-on-surface-variant hover:bg-surface-container-highest font-code-md text-code-md border-l-4 border-transparent">About</a>
+    <a href="contact.html" class="px-gutter py-sm text-primary font-code-md text-code-md border-l-4 border-primary bg-primary/10">Contact</a>
+    <a href="https://www.linkedin.com/in/domonkos-tóth/" target="_blank" rel="noopener noreferrer" class="mx-gutter mt-sm bg-primary-container text-on-primary-container font-label-sm text-label-sm uppercase px-sm py-xs rounded text-center">Hire Me</a>
 </div>
 </nav>
 <!-- Main Content Canvas -->
@@ -207,5 +215,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
     setTimeout(typeChar, 300);
 });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                menu.classList.toggle('flex');
+            });
+        }
+    });
 </script>
 </body></html>
