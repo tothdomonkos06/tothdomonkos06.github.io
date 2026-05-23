@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tóth Domonkos - About</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline-variant": "#3c4a42",
+                        "inverse-primary": "#006c49",
+                        "surface-container-high": "#23293c",
+                        outline: "#86948a",
+                        "surface-bright": "#33394c",
+                        primary: "#4edea3",
+                        "inverse-surface": "#dce1fb",
+                        surface: "#0c1324",
+                        "on-surface": "#dce1fb",
+                        secondary: "#b9c7e0",
+                        "on-tertiary-container": "#004231",
+                        background: "#0c1324",
+                        "on-primary": "#003824",
+                        "on-background": "#dce1fb",
+                        error: "#ffb4ab",
+                        "surface-variant": "#2e3447",
+                        "on-primary-container": "#00422b",
+                        "tertiary-container": "#71af97",
+                        "on-secondary-fixed": "#0d1c2f",
+                        "primary-fixed": "#6ffbbe",
+                        "on-error": "#690005",
+                        "on-tertiary": "#003829",
+                        "tertiary-fixed-dim": "#95d3ba",
+                        "surface-container-low": "#151b2d",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "on-primary-fixed": "#002113",
+                        "on-secondary": "#233144",
+                        "secondary-fixed": "#d5e3fd",
+                        "on-surface-variant": "#bbcabf",
+                        "error-container": "#93000a",
+                        "primary-container": "#10b981",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-container-lowest": "#070d1f",
+                        "secondary-container": "#3c4a5e",
+                        "surface-container-highest": "#2e3447",
+                        "inverse-on-surface": "#2a3043",
+                        tertiary: "#95d3ba",
+                        "surface-container": "#191f31",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#4edea3",
+                        "on-tertiary-fixed": "#002117",
+                        "surface-dim": "#0c1324",
+                        "tertiary-fixed": "#b0f0d6",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "on-secondary-container": "#abb9d2",
+                        "surface-tint": "#4edea3",
+                        "on-tertiary-fixed-variant": "#0b513d"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        md: "24px",
+                        sm: "16px",
+                        lg: "40px",
+                        xs: "8px",
+                        base: "4px",
+                        gutter: "24px",
+                        xl: "64px",
+                        margin: "32px"
+                    },
+                    fontFamily: {
+                        "code-md": ["JetBrains Mono"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Geist"],
+                        "body-md": ["Geist"],
+                        "headline-xl": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "headline-xl-mobile": ["Geist"],
+                        headline: ["Geist"],
+                        display: ["Geist"],
+                        body: ["Geist"],
+                        label: ["JetBrains Mono"]
+                    },
+                    fontSize: {
+                        "code-md": ["14px", {lineHeight: "20px", fontWeight: "400"}],
+                        "label-sm": ["12px", {lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "500"}],
+                        "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}],
+                        "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}],
+                        "headline-xl": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700"}],
+                        "headline-md": ["24px", {lineHeight: "32px", fontWeight: "600"}],
+                        "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600"}],
+                        "headline-xl-mobile": ["32px", {lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700"}]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0c1324;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3c4a42;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #86948a;
+        }
+
+        /* Entrance Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover states */
+        .tech-chip {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tech-chip:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 0 15px rgba(78, 222, 163, 0.2);
+            border-color: #4edea3;
+        }
+
+        .timeline-item {
+            transition: all 0.3s ease;
+        }
+        .timeline-item:hover {
+            background-color: rgba(78, 222, 163, 0.03);
+        }
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.5);
+            background-color: #4edea3;
+            box-shadow: 0 0 10px rgba(78, 222, 163, 0.5);
+        }
+
+        /* Interactive Background */
+        #bg-interactive {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(78, 222, 163, 0.03) 0%, transparent 40%);
+            transition: background 0.1s ease-out;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .tech-chip, .timeline-item, .timeline-dot {
+                transition: none !important;
+                transform: none !important;
+                opacity: 1 !important;
+            }
+            #bg-interactive {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased flex flex-col min-h-screen selection:bg-primary/30 selection:text-primary overflow-x-hidden">
+<div id="bg-interactive"></div>
+<!-- TopNavBar Component -->
+<nav class="bg-background/80 backdrop-blur-md border-b border-outline-variant w-full top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-margin md:px-gutter max-w-screen-xl mx-auto h-20">
+<div class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">
+                Tóth Domonkos
+            </div>
+<ul class="hidden md:flex items-center gap-margin">
+<li><a class="font-code-md text-code-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="index.html">Home</a></li>
+<li><a class="font-code-md text-code-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="portfolio.html">Portfolio</a></li>
+<li><a class="font-code-md text-code-md text-primary border-b-2 border-primary pb-1 scale-95 transition-transform duration-200" href="aboutme.html">About</a></li>
+<li>
+<a class="text-on-surface-variant hover:text-primary transition-colors transition-all duration-200" href="contact.html">Contact</a>
+</li>
+</ul>
+<div class="flex items-center gap-gutter">
+<a href="https://www.linkedin.com/in/domonkos-t%C3%B3th/" target="_blank" rel="noopener noreferrer" class="inline-block bg-primary text-background font-label-sm text-label-sm px-sm py-xs rounded hover:bg-primary-container transition-all hover:scale-105 active:scale-95">
+                    Hire Me
+                </a>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow w-full px-margin md:px-gutter max-w-screen-xl mx-auto py-xl flex flex-col gap-xl">
+<!-- Hero Section -->
+<section class="reveal grid grid-cols-1 md:grid-cols-12 gap-gutter items-center" id="hero">
+<div class="md:col-span-7 flex flex-col gap-sm">
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">terminal</span>
+                    System Architecture &amp; Engineering
+                </div>
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface">
+                    Computer Engineering Student at BME | Software &amp; Algorithms
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-xs">
+                    I am a first-year Computer Engineering student at BME (Budapest University of Technology and Economics). I am highly interested in software development, algorithms, and system architecture. Beyond the screen, I am a dedicated marathon runner and an analog audio enthusiast.
+                </p>
+<div class="flex items-center gap-sm mt-sm flex-wrap">
+<div class="flex items-center gap-xs text-on-surface-variant font-code-md text-code-md bg-surface-container-low border border-outline-variant px-sm py-xs rounded">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                        Budapest, Hungary
+                    </div>
+<a href="https://github.com/tothdomonkos06" target="_blank" rel="noopener noreferrer" class="flex items-center gap-xs text-on-surface-variant font-code-md text-code-md bg-surface-container-low border border-outline-variant px-sm py-xs rounded hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">code</span>
+                        GitHub
+                    </a>
+<a href="https://www.linkedin.com/in/domonkos-t%C3%B3th/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-xs text-on-surface-variant font-code-md text-code-md bg-surface-container-low border border-outline-variant px-sm py-xs rounded hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">person</span>
+                        LinkedIn
+                    </a>
+</div>
+</div>
+<!-- Terminal / Code Block Visual -->
+<div class="md:col-span-5 w-full">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden shadow-[0_0_40px_rgba(78,222,163,0.05)]">
+<div class="bg-surface-container flex items-center gap-2 px-sm py-xs border-b border-outline-variant">
+<div class="w-3 h-3 rounded-full bg-error/80"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary-container/80"></div>
+<div class="w-3 h-3 rounded-full bg-primary/80"></div>
+<span class="ml-sm font-label-sm text-label-sm text-on-surface-variant">profile.cpp</span>
+</div>
+<div class="p-sm font-code-md text-code-md text-on-surface-variant overflow-x-auto whitespace-pre typewriter-target h-[220px]" id="terminal-body"><span class="text-primary">class</span> Doma {
+<span class="text-primary">public:</span>
+    Doma() {
+        university = <span class="text-secondary">"BME"</span>;
+        major = <span class="text-secondary">"Computer Eng."</span>;
+        interests = [<span class="text-secondary">"Algorithms"</span>, <span class="text-secondary">"Systems"</span>];
+    }
+
+    <span class="text-primary">void</span> runMarathon() {
+        <span class="text-outline-variant">// Consistent training...</span>
+        keepPace(250); <span class="text-outline-variant">// optimize performance</span>
+    }
+};</div>
+</div>
+</div>
+</section>
+<!-- Education Bento -->
+<section class="reveal flex flex-col gap-md" id="education">
+<h2 class="font-headline-lg text-headline-lg text-on-surface border-b border-outline-variant pb-xs">Education Context</h2>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Education Card -->
+<div class="md:col-span-8 bg-surface-container-low border border-outline-variant rounded-lg p-md flex flex-col gap-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-md opacity-10 group-hover:opacity-20 transition-all duration-500 group-hover:scale-110">
+<span class="material-symbols-outlined text-[120px]">school</span>
+</div>
+<div class="font-label-sm text-label-sm text-primary flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">account_balance</span>
+                        Current Academic Focus
+                    </div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Budapest University of Technology and Economics (BME)</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-xs">Bachelor of Science in Computer Engineering</p>
+</div>
+<div class="mt-auto pt-sm flex flex-wrap gap-xs">
+<span class="px-xs py-base bg-surface-variant border border-outline-variant rounded font-label-sm text-label-sm text-on-surface transition-colors hover:bg-outline-variant">Low-level &amp; OOP</span>
+<span class="px-xs py-base bg-surface-variant border border-outline-variant rounded font-label-sm text-label-sm text-on-surface transition-colors hover:bg-outline-variant">Algorithms &amp; Data Structures</span>
+<span class="px-xs py-base bg-surface-variant border border-outline-variant rounded font-label-sm text-label-sm text-on-surface transition-colors hover:bg-outline-variant">Digital Systems &amp; FPGA</span>
+<span class="px-xs py-base bg-surface-variant border border-outline-variant rounded font-label-sm text-label-sm text-on-surface transition-colors hover:bg-outline-variant">Mathematical Foundations</span>
+</div>
+</div>
+<!-- Metrics/Highlight Card -->
+<div class="md:col-span-4 bg-surface border border-outline-variant rounded-lg p-md flex flex-col justify-center gap-sm">
+<div class="font-code-md text-code-md text-on-surface-variant">Expected Graduation</div>
+<div class="font-headline-xl text-headline-xl text-primary font-bold">2029</div>
+<div class="w-full bg-surface-variant h-1 mt-xs rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[20%] transition-all duration-1000 ease-out delay-500 origin-left" id="grad-progress" style="transform: scaleX(0);"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Stack -->
+<section class="reveal flex flex-col gap-md" id="tech-stack">
+<h2 class="font-headline-lg text-headline-lg text-on-surface border-b border-outline-variant pb-xs">Technical Stack</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Languages -->
+<div class="bg-surface-container-low border border-outline-variant rounded p-md flex flex-col gap-sm">
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-xs border-b border-outline-variant pb-xs">
+<span class="material-symbols-outlined text-[16px]">code</span> Core Languages
+                    </div>
+<ul class="flex flex-col gap-xs font-code-md text-code-md text-on-surface mt-xs">
+<li class="flex justify-between items-center group/item p-1 rounded hover:bg-surface-variant transition-colors cursor-default">
+<span>C</span>
+<span class="w-2 h-2 rounded-full bg-primary opacity-0 group-hover/item:opacity-100 transition-opacity"></span>
+</li>
+<li class="flex justify-between items-center group/item p-1 rounded hover:bg-surface-variant transition-colors cursor-default">
+<span>C++ (OOP &amp; STL)</span>
+<span class="w-2 h-2 rounded-full bg-primary opacity-0 group-hover/item:opacity-100 transition-opacity"></span>
+</li>
+<li class="flex justify-between items-center group/item p-1 rounded hover:bg-surface-variant transition-colors cursor-default">
+<span>Assembly &amp; Verilog</span>
+<span class="w-2 h-2 rounded-full bg-primary opacity-0 group-hover/item:opacity-100 transition-opacity"></span>
+</li>
+</ul>
+</div>
+<!-- Hardware & Systems -->
+<div class="bg-surface-container-low border border-outline-variant rounded p-md flex flex-col gap-sm">
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-xs border-b border-outline-variant pb-xs">
+<span class="material-symbols-outlined text-[16px]">memory</span> Hardware &amp; Systems
+                    </div>
+<div class="flex flex-wrap gap-xs mt-xs">
+<div class="tech-chip px-sm py-xs bg-surface border border-outline-variant rounded font-code-md text-code-md text-on-surface flex items-center gap-xs cursor-default">
+<span class="material-symbols-outlined text-[18px]">developer_board</span> FPGA
+                        </div>
+<div class="tech-chip px-sm py-xs bg-surface border border-outline-variant rounded font-code-md text-code-md text-on-surface flex items-center gap-xs cursor-default">
+<span class="material-symbols-outlined text-[18px]">account_tree</span> Git
+                        </div>
+<div class="tech-chip px-sm py-xs bg-surface border border-outline-variant rounded font-code-md text-code-md text-on-surface flex items-center gap-xs cursor-default">
+                            Computer Architecture
+                        </div>
+</div>
+</div>
+<!-- Conceptual -->
+<div class="bg-surface-container-low border border-outline-variant rounded p-md flex flex-col gap-sm">
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-xs border-b border-outline-variant pb-xs">
+<span class="material-symbols-outlined text-[16px]">architecture</span> Engineering Principles
+                    </div>
+<ul class="flex flex-col gap-xs font-body-md text-body-md text-on-surface mt-xs">
+<li class="flex items-start gap-xs p-1 group/item">
+<span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover/item:scale-125">check</span>
+                            Algorithm Design &amp; Complexity
+                        </li>
+<li class="flex items-start gap-xs p-1 group/item">
+<span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover/item:scale-125">check</span>
+                            Memory Management &amp; Optimization
+                        </li>
+<li class="flex items-start gap-xs p-1 group/item">
+<span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover/item:scale-125">check</span>
+                            Discrete Math &amp; Linear Algebra
+                        </li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Professional Journey / Projects -->
+<section class="reveal flex flex-col gap-md" id="journey">
+<h2 class="font-headline-lg text-headline-lg text-on-surface border-b border-outline-variant pb-xs">Beyond the Screen</h2>
+<div class="flex flex-col gap-lg pl-sm border-l border-outline-variant ml-sm relative mt-sm">
+<!-- Item 1 -->
+<div class="timeline-item relative pl-lg py-sm rounded-r-lg group">
+<div class="timeline-dot absolute -left-[5px] top-4 w-[10px] h-[10px] rounded-full bg-primary ring-4 ring-background transition-all duration-300"></div>
+<div class="font-label-sm text-label-sm text-primary mb-base">Sports &amp; Performance</div>
+<h3 class="font-headline-md text-headline-md text-on-surface transition-colors group-hover:text-primary">Marathon Running</h3>
+<div class="font-code-md text-code-md text-on-surface-variant mb-sm">Training, Tech &amp; Tactics</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+                        I am an avid runner, currently training for a full marathon after completing several half-marathons. I love diving into the technical aspects of running, tracking pace strategies, and pushing my physical limits.
+                    </p>
+</div>
+<!-- Item 2 -->
+<div class="timeline-item relative pl-lg py-sm rounded-r-lg group">
+<div class="timeline-dot absolute -left-[5px] top-4 w-[10px] h-[10px] rounded-full bg-surface-variant border border-outline-variant ring-4 ring-background transition-all duration-300"></div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mb-base">Interests</div>
+<h3 class="font-headline-md text-headline-md text-on-surface transition-colors group-hover:text-primary">Privacy Tech &amp; Audiophile</h3>
+<div class="font-code-md text-code-md text-on-surface-variant mb-sm">OpSec, Analog Amps, TIDAL</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+                        I am highly interested in operational security and privacy tools, regularly exploring secure systems. When I'm not coding or running, I enjoy high-fidelity music streaming through my analog amplifier setup.
+                    </p>
+</div>
+<!-- Removed Item 3 -->
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-container-low border-t border-outline-variant w-full mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full py-xl px-margin md:px-gutter max-w-screen-xl mx-auto gap-base">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">
+                Tóth Domonkos
+            </div>
+<div class="font-body-md text-body-md text-on-surface-variant">
+                © 2024 Tóth Domonkos. Engineered for Performance.
+            </div>
+<ul class="flex items-center gap-gutter">
+<li><a class="font-code-md text-code-md text-on-surface-variant hover:text-primary underline decoration-1 underline-offset-4 transition-all hover:-translate-y-0.5 duration-200" href="#">LinkedIn</a></li>
+<li><a class="font-code-md text-code-md text-on-surface-variant hover:text-primary underline decoration-1 underline-offset-4 transition-all hover:-translate-y-0.5 duration-200" href="#">GitHub</a></li>
+<li><a class="font-code-md text-code-md text-on-surface-variant hover:text-primary underline decoration-1 underline-offset-4 transition-all hover:-translate-y-0.5 duration-200" href="#">Email</a></li>
+</ul>
+</div>
+</footer>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Interactive Background Logic
+            const bg = document.getElementById('bg-interactive');
+            window.addEventListener('mousemove', (e) => {
+                const x = (e.clientX / window.innerWidth) * 100;
+                const y = (e.clientY / window.innerHeight) * 100;
+                bg.style.setProperty('--mouse-x', `${x}%`);
+                bg.style.setProperty('--mouse-y', `${y}%`);
+            });
+
+            // Entrance Animations Observer
+            const observerOptions = { threshold: 0.1 };
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Special case for graduation progress bar
+                        if (entry.target.id === 'education') {
+                            document.getElementById('grad-progress').style.transform = 'scaleX(1)';
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+            // Typing Animation for Terminal
+            const terminalBody = document.getElementById('terminal-body');
+            const originalContent = terminalBody.innerHTML;
+            terminalBody.dataset.original = originalContent;
+            terminalBody.innerHTML = '<span class="animate-pulse text-primary font-bold">_</span>';
+
+            const typeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.dataset.started) {
+                        entry.target.dataset.started = "true";
+                        typeHTML(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            typeObserver.observe(terminalBody);
+
+            function typeHTML(element) {
+                const html = element.dataset.original;
+                element.innerHTML = '';
+                let i = 0;
+                let currentHtml = '';
+                
+                function type() {
+                    if (i < html.length) {
+                        let char = html[i];
+                        if (char === '<') {
+                            let tag = '';
+                            while(html[i] !== '>' && i < html.length) {
+                                tag += html[i];
+                                i++;
+                            }
+                            tag += '>';
+                            currentHtml += tag;
+                            i++;
+                            type(); // skip timeout for tags
+                            return;
+                        } else if (char === '&') {
+                            let entity = '';
+                            while(html[i] !== ';' && i < html.length) {
+                                entity += html[i];
+                                i++;
+                            }
+                            entity += ';';
+                            currentHtml += entity;
+                            i++;
+                        } else {
+                            currentHtml += char;
+                            i++;
+                        }
+                        
+                        element.innerHTML = currentHtml + '<span class="animate-pulse text-primary font-bold">|</span>';
+                        setTimeout(type, 10);
+                    } else {
+                        element.innerHTML = currentHtml + '<span class="animate-pulse text-primary font-bold">_</span>';
+                    }
+                }
+                type();
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tóth Domonkos - Kapcsolat</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"outline-variant": "#3c4a42", "inverse-primary": "#006c49", "surface-container-high": "#23293c", outline: "#86948a", "surface-bright": "#33394c", primary: "#4edea3", "inverse-surface": "#dce1fb", surface: "#0c1324", "on-surface": "#dce1fb", secondary: "#b9c7e0", "on-tertiary-container": "#004231", background: "#0c1324", "on-primary": "#003824", "on-background": "#dce1fb", error: "#ffb4ab", "surface-variant": "#2e3447", "on-primary-container": "#00422b", "tertiary-container": "#71af97", "on-secondary-fixed": "#0d1c2f", "primary-fixed": "#6ffbbe", "on-error": "#690005", "on-tertiary": "#003829", "tertiary-fixed-dim": "#95d3ba", "surface-container-low": "#151b2d", "secondary-fixed-dim": "#b9c7e0", "on-primary-fixed": "#002113", "on-secondary": "#233144", "secondary-fixed": "#d5e3fd", "on-surface-variant": "#bbcabf", "error-container": "#93000a", "primary-container": "#10b981", "on-primary-fixed-variant": "#005236", "surface-container-lowest": "#070d1f", "secondary-container": "#3c4a5e", "surface-container-highest": "#2e3447", "inverse-on-surface": "#2a3043", tertiary: "#95d3ba", "surface-container": "#191f31", "on-error-container": "#ffdad6", "primary-fixed-dim": "#4edea3", "on-tertiary-fixed": "#002117", "surface-dim": "#0c1324", "tertiary-fixed": "#b0f0d6", "on-secondary-fixed-variant": "#3a485c", "on-secondary-container": "#abb9d2", "surface-tint": "#4edea3", "on-tertiary-fixed-variant": "#0b513d"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {md: "24px", sm: "16px", lg: "40px", xs: "8px", base: "4px", gutter: "24px", xl: "64px", margin: "32px"}, fontFamily: {"code-md": ["JetBrains Mono"], "label-sm": ["JetBrains Mono"], "body-lg": ["Geist"], "body-md": ["Geist"], "headline-xl": ["Geist"], "headline-md": ["Geist"], "headline-lg": ["Geist"], "headline-xl-mobile": ["Geist"], headline: ["Geist"], display: ["Geist"], body: ["Geist"], label: ["JetBrains Mono"]}, fontSize: {"code-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], "label-sm": ["12px", {lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "500"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}], "headline-xl": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700"}], "headline-md": ["24px", {lineHeight: "32px", fontWeight: "600"}], "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600"}], "headline-xl-mobile": ["32px", {lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700"}]}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .surface-card {
+            background-color: #0f172a; /* Surface Level 1 */
+            border: 1px solid #334155;
+        }
+        .terminal-header {
+            background-color: #1e293b;
+            border-bottom: 1px solid #334155;
+        }
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+        .dot-red { background-color: #ff5f56; }
+        .dot-yellow { background-color: #ffbd2e; }
+        .dot-green { background-color: #27c93f; }
+        
+        .input-focus-effect:focus-within {
+            border-color: #10b981;
+        }
+        .input-focus-effect:focus-within label {
+            color: #10b981;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="bg-background dark:bg-background docked full-width top-0 sticky z-50 border-b border-outline-variant dark:border-outline-variant flat no shadows">
+<div class="flex justify-between items-center w-full px-margin md:px-gutter max-w-screen-xl mx-auto h-20">
+<div class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface tracking-tight">Tóth Domonkos</div>
+<div class="hidden md:flex gap-md items-center">
+<a class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors transition-all duration-200" href="index.html">Home</a>
+<a class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors transition-all duration-200" href="portfolio.html">Portfolio</a>
+<a class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors transition-all duration-200" href="aboutme.html">About</a>
+<a class="font-code-md text-code-md text-primary dark:text-primary border-b-2 border-primary pb-1 hover:text-primary dark:hover:text-primary transition-all duration-200 scale-95" href="contact.html">Contact</a>
+</div>
+<a href="https://www.linkedin.com/in/domonkos-tóth/" target="_blank" class="bg-primary-container text-on-primary-container font-label-sm text-label-sm px-sm py-xs rounded hover:bg-primary transition-colors hidden md:block">Hire Me</a>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full px-margin md:px-gutter max-w-screen-xl mx-auto py-xl">
+<header class="mb-xl text-center md:text-left">
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-xs">Initialize Connection</h1>
+<p class="font-code-md text-code-md text-on-surface-variant">System ready for secure data transfer. Awaiting input...</p>
+</header>
+<div class="grid grid-cols-4 md:grid-cols-12 gap-gutter">
+<!-- Contact Form Area -->
+<div class="col-span-4 md:col-span-7 flex flex-col gap-lg">
+<form action="https://formspree.io/f/xpqnlogq" method="POST" class="surface-card rounded-lg p-lg flex flex-col gap-md">
+<div class="font-label-sm text-label-sm text-primary mb-sm uppercase tracking-widest">// Dispatch Protocol</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="relative input-focus-effect rounded border border-outline-variant bg-surface-container-low transition-colors">
+<label class="absolute -top-3 left-3 bg-surface-container-low px-1 font-label-sm text-label-sm text-on-surface-variant transition-colors">name_string</label>
+<input name="name" class="w-full bg-transparent border-none text-on-surface font-code-md text-code-md p-sm focus:ring-0" placeholder="John Doe" type="text" required/>
+</div>
+<div class="relative input-focus-effect rounded border border-outline-variant bg-surface-container-low transition-colors">
+<label class="absolute -top-3 left-3 bg-surface-container-low px-1 font-label-sm text-label-sm text-on-surface-variant transition-colors">email_address</label>
+<input name="email" class="w-full bg-transparent border-none text-on-surface font-code-md text-code-md p-sm focus:ring-0" placeholder="john@domain.com" type="email" required/>
+</div>
+</div>
+<div class="relative input-focus-effect rounded border border-outline-variant bg-surface-container-low transition-colors mt-sm">
+<label class="absolute -top-3 left-3 bg-surface-container-low px-1 font-label-sm text-label-sm text-on-surface-variant transition-colors">subject_context</label>
+<select name="subject" class="w-full bg-transparent border-none text-on-surface font-code-md text-code-md p-sm focus:ring-0 appearance-none">
+<option class="bg-surface-container-high" value="freelance">Freelance Inquiry</option>
+<option class="bg-surface-container-high" value="employment">Employment Opportunity</option>
+<option class="bg-surface-container-high" value="collab">Technical Collaboration</option>
+<option class="bg-surface-container-high" value="other">Other / Unknown</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-sm text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<div class="relative input-focus-effect rounded border border-outline-variant bg-surface-container-low transition-colors mt-sm">
+<label class="absolute -top-3 left-3 bg-surface-container-low px-1 font-label-sm text-label-sm text-on-surface-variant transition-colors">payload_body</label>
+<textarea name="message" class="w-full bg-transparent border-none text-on-surface font-code-md text-code-md p-sm focus:ring-0 resize-none" placeholder="Enter message parameters here..." rows="5" required></textarea>
+</div>
+<div class="mt-md flex justify-end">
+<button class="bg-primary-container text-on-primary-container font-label-sm text-label-sm px-lg py-sm rounded hover:bg-primary transition-colors flex items-center gap-xs" type="submit">
+<span class="material-symbols-outlined text-[18px]">send</span>
+                            EXECUTE_SEND
+                        </button>
+</div>
+</form>
+</div>
+<!-- Technical Identity & Terminal -->
+<div class="col-span-4 md:col-span-5 flex flex-col gap-lg">
+<!-- Terminal Contact Info -->
+<div class="surface-card rounded-lg overflow-hidden font-code-md text-code-md text-on-surface flex flex-col">
+<div class="terminal-header px-sm py-xs flex items-center">
+<div class="terminal-dot dot-red"></div>
+<div class="terminal-dot dot-yellow"></div>
+<div class="terminal-dot dot-green"></div>
+<div class="ml-sm text-on-surface-variant text-[12px]">contact@tothdomonkos.sh</div>
+</div>
+<div class="p-sm flex-grow flex flex-col gap-xs bg-[#050914] terminal-typewriter">
+<div><span class="text-primary">$</span> whoami</div>
+<div class="text-secondary pl-sm">&gt; Tóth Domonkos</div>
+<div class="text-secondary pl-sm">&gt; Computer Engineer</div>
+<div class="mt-xs"><span class="text-primary">$</span> cat contact_info.json</div>
+<div class="text-secondary pl-sm whitespace-pre">
+{
+  "email": "<a class="text-primary hover:underline" href="mailto:hello@tothdomonkos.dev">hello@tothdomonkos.dev</a>",
+  "location": "Budapest, HU",
+  "timezone": "UTC+1"
+}
+                        </div>
+<div class="mt-xs"><span class="text-primary">$</span> get_pgp_key</div>
+<div class="text-secondary pl-sm text-[10px] break-all opacity-70">
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+mQINBGEq7oEBEAC7...[TRUNCATED_FOR_DISPLAY]...
+-----END PGP PUBLIC KEY BLOCK-----
+                        </div>
+<div class="mt-auto pt-sm flex items-center terminal-cursor-row">
+<span class="text-primary mr-xs">$</span> <span class="animate-pulse w-2 h-4 bg-primary inline-block terminal-cursor"></span>
+</div>
+</div>
+</div>
+<!-- External Links Bento -->
+<div class="grid grid-cols-2 gap-sm">
+<a href="https://github.com/tothdomonkos06" target="_blank" class="surface-card rounded-lg p-sm flex flex-col items-center justify-center gap-xs hover:border-primary transition-colors group">
+<span class="material-symbols-outlined text-[32px] text-on-surface-variant group-hover:text-primary transition-colors">code</span>
+<span class="font-label-sm text-label-sm text-on-surface">GitHub</span>
+</a>
+<a href="https://www.linkedin.com/in/domonkos-tóth/" target="_blank" class="surface-card rounded-lg p-sm flex flex-col items-center justify-center gap-xs hover:border-primary transition-colors group">
+<span class="material-symbols-outlined text-[32px] text-on-surface-variant group-hover:text-primary transition-colors">work</span>
+<span class="font-label-sm text-label-sm text-on-surface">LinkedIn</span>
+</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-low full-width border-t border-outline-variant dark:border-outline-variant flat no shadows mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full py-xl px-margin md:px-gutter max-w-screen-xl mx-auto gap-base">
+<div class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant">© 2024 Tóth Domonkos. Engineered for Performance.</div>
+<div class="flex gap-md items-center">
+<a href="https://www.linkedin.com/in/domonkos-tóth/" target="_blank" class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary underline decoration-1 underline-offset-4 transition-all hover:translate-y-[-1px] transition-transform duration-200">LinkedIn</a>
+<a href="https://github.com/tothdomonkos06" target="_blank" class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary underline decoration-1 underline-offset-4 transition-all hover:translate-y-[-1px] transition-transform duration-200">GitHub</a>
+<a href="#" class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary underline decoration-1 underline-offset-4 transition-all hover:translate-y-[-1px] transition-transform duration-200">BME</a>
+<a href="mailto:hello@tothdomonkos.dev" class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary underline decoration-1 underline-offset-4 transition-all hover:translate-y-[-1px] transition-transform duration-200">Email</a>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const terminal = document.querySelector('.terminal-typewriter');
+    if (!terminal) return;
+    
+    // Temporarily hide the cursor row so it doesn't get captured in typing text, we'll show it after.
+    const cursorRow = terminal.querySelector('.terminal-cursor-row');
+    if (cursorRow) cursorRow.style.display = 'none';
+
+    const textNodes = [];
+    function walk(node) {
+        if (node.nodeType === 3) {
+            if (node.nodeValue.trim().length > 0) {
+                textNodes.push(node);
+            }
+        } else {
+            node.childNodes.forEach(walk);
+        }
+    }
+    
+    walk(terminal);
+
+    const originalTexts = textNodes.map(n => n.nodeValue);
+    textNodes.forEach(n => n.nodeValue = '');
+
+    let nodeIdx = 0;
+    let charIdx = 0;
+
+    function typeChar() {
+        if (nodeIdx < textNodes.length) {
+            if (charIdx < originalTexts[nodeIdx].length) {
+                textNodes[nodeIdx].nodeValue += originalTexts[nodeIdx].charAt(charIdx);
+                charIdx++;
+                setTimeout(typeChar, 10);
+            } else {
+                nodeIdx++;
+                charIdx = 0;
+                setTimeout(typeChar, 10);
+            }
+        } else {
+            // Finished typing, show cursor row
+            if (cursorRow) cursorRow.style.display = 'flex';
+        }
+    }
+    
+    setTimeout(typeChar, 300);
+});
+</script>
+</body></html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tóth Domonkos - Portfólió</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"outline-variant": "#3c4a42", "inverse-primary": "#006c49", "surface-container-high": "#23293c", outline: "#86948a", "surface-bright": "#33394c", primary: "#4edea3", "inverse-surface": "#dce1fb", surface: "#0c1324", "on-surface": "#dce1fb", secondary: "#b9c7e0", "on-tertiary-container": "#004231", background: "#0c1324", "on-primary": "#003824", "on-background": "#dce1fb", error: "#ffb4ab", "surface-variant": "#2e3447", "on-primary-container": "#00422b", "tertiary-container": "#71af97", "on-secondary-fixed": "#0d1c2f", "primary-fixed": "#6ffbbe", "on-error": "#690005", "on-tertiary": "#003829", "tertiary-fixed-dim": "#95d3ba", "surface-container-low": "#151b2d", "secondary-fixed-dim": "#b9c7e0", "on-primary-fixed": "#002113", "on-secondary": "#233144", "secondary-fixed": "#d5e3fd", "on-surface-variant": "#bbcabf", "error-container": "#93000a", "primary-container": "#10b981", "on-primary-fixed-variant": "#005236", "surface-container-lowest": "#070d1f", "secondary-container": "#3c4a5e", "surface-container-highest": "#2e3447", "inverse-on-surface": "#2a3043", tertiary: "#95d3ba", "surface-container": "#191f31", "on-error-container": "#ffdad6", "primary-fixed-dim": "#4edea3", "on-tertiary-fixed": "#002117", "surface-dim": "#0c1324", "tertiary-fixed": "#b0f0d6", "on-secondary-fixed-variant": "#3a485c", "on-secondary-container": "#abb9d2", "surface-tint": "#4edea3", "on-tertiary-fixed-variant": "#0b513d"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {md: "24px", sm: "16px", lg: "40px", xs: "8px", base: "4px", gutter: "24px", xl: "64px", margin: "32px"}, fontFamily: {"code-md": ["JetBrains Mono"], "label-sm": ["JetBrains Mono"], "body-lg": ["Geist"], "body-md": ["Geist"], "headline-xl": ["Geist"], "headline-md": ["Geist"], "headline-lg": ["Geist"], "headline-xl-mobile": ["Geist"], headline: ["Geist"], display: ["Geist"], body: ["Geist"], label: ["JetBrains Mono"]}, fontSize: {"code-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], "label-sm": ["12px", {lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "500"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}], "headline-xl": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700"}], "headline-md": ["24px", {lineHeight: "32px", fontWeight: "600"}], "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600"}], "headline-xl-mobile": ["32px", {lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700"}]}}}};</script>
+<style>
+        /* Custom scrollbar for technical feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0c1324;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3c4a42;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4edea3;
+        }
+        
+        /* Grid transition for smooth filtering */
+        .project-card {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .project-card.hidden {
+            display: none;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary">
+<!-- TopNavBar -->
+<nav class="bg-background dark:bg-background docked full-width top-0 sticky z-50 border-b border-outline-variant dark:border-outline-variant flat no shadows">
+<div class="flex justify-between items-center w-full px-margin md:px-gutter max-w-screen-xl mx-auto h-20">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface tracking-tight hover:text-primary dark:hover:text-primary transition-all duration-200" href="#">
+                Tóth Domonkos
+            </a>
+<!-- Navigation Links (Web) -->
+<ul class="hidden md:flex gap-lg items-center">
+<li>
+<a class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors hover:text-primary dark:hover:text-primary transition-all duration-200" href="index.html">
+                        Home
+                    </a>
+</li>
+<li>
+<a class="font-code-md text-code-md text-primary dark:text-primary border-b-2 border-primary pb-1 hover:text-primary dark:hover:text-primary transition-all duration-200 Active: scale-95 transition-transform" href="portfolio.html">
+                        Portfolio
+                    </a>
+</li>
+<li>
+<a class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors hover:text-primary dark:hover:text-primary transition-all duration-200" href="aboutme.html">
+                        About
+                    </a>
+</li>
+<li>
+<a class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors hover:text-primary dark:hover:text-primary transition-all duration-200" href="#">
+                        Contact
+                    </a>
+</li>
+</ul>
+<!-- Trailing Action -->
+<div class="hidden md:block">
+<a href="https://www.linkedin.com/in/domonkos-t%C3%B3th/" target="_blank" rel="noopener noreferrer" class="inline-block bg-primary-container text-on-primary-container font-label-sm text-label-sm px-sm py-xs rounded hover:bg-primary transition-colors font-bold tracking-wider uppercase">
+                    Hire Me
+                </a>
+</div>
+<!-- Mobile Menu Icon -->
+<button class="md:hidden text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-screen-xl mx-auto px-margin md:px-gutter py-xl">
+<!-- Header Section -->
+<header class="mb-xl max-w-3xl">
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-sm">Portfólió</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-md">
+                A highly curated selection of engineering projects spanning infrastructure, embedded systems, and machine learning. Emphasizing performant code and scalable architecture.
+            </p>
+<div class="flex gap-sm">
+<a href="https://github.com/tothdomonkos06" target="_blank" rel="noopener noreferrer" class="flex items-center gap-xs text-on-surface-variant font-code-md text-code-md bg-surface-container-low border border-outline-variant px-sm py-xs rounded hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">code</span>
+                    GitHub
+                </a>
+<a href="https://www.linkedin.com/in/domonkos-t%C3%B3th/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-xs text-on-surface-variant font-code-md text-code-md bg-surface-container-low border border-outline-variant px-sm py-xs rounded hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">person</span>
+                    LinkedIn
+                </a>
+</div>
+</header>
+<!-- Filters -->
+<section aria-label="Project Categories" class="mb-lg">
+<div class="flex flex-wrap gap-xs" id="filter-container">
+<button class="filter-btn active bg-primary/10 border border-primary text-primary font-label-sm text-label-sm px-sm py-xs rounded transition-colors uppercase tracking-widest" data-filter="all">
+                    All Projects
+                </button>
+<button class="filter-btn border border-outline-variant text-on-surface-variant font-label-sm text-label-sm px-sm py-xs rounded hover:border-primary hover:text-primary transition-colors uppercase tracking-widest" data-filter="software">
+                    Software Dev
+                </button>
+<button class="filter-btn border border-outline-variant text-on-surface-variant font-label-sm text-label-sm px-sm py-xs rounded hover:border-primary hover:text-primary transition-colors uppercase tracking-widest" data-filter="embedded">
+                    Embedded Systems
+                </button>
+<button class="filter-btn border border-outline-variant text-on-surface-variant font-label-sm text-label-sm px-sm py-xs rounded hover:border-primary hover:text-primary transition-colors uppercase tracking-widest" data-filter="ai">
+                    AI &amp; ML
+                </button>
+<button class="filter-btn border border-outline-variant text-on-surface-variant font-label-sm text-label-sm px-sm py-xs rounded hover:border-primary hover:text-primary transition-colors uppercase tracking-widest" data-filter="networks">
+                    Networks
+                </button>
+</div>
+</section>
+<!-- Project Grid (Bento-style layout variations using grid span) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md" id="project-grid">
+<!-- Project Card 1: Doppler-fizika-projekt -->
+<article class="project-card md:col-span-6 bg-surface border border-outline-variant rounded flex flex-col p-md hover:border-primary transition-all group cursor-pointer" data-category="software" onclick="window.open('https://github.com/tothdomonkos06/Doppler-fizika-projekt', '_blank')">
+<div class="w-full h-48 bg-surface-container-highest rounded mb-sm overflow-hidden relative border border-outline-variant/50">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 mix-blend-luminosity group-hover:mix-blend-normal" data-alt="Abstract code" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDTq4Hi15gs0LONXGhEhzCvlK7htVodFLz50ntmp7oA4CPwZSjxQMPCy-ARQ4R_Q0yd4RAWferxi7PlzyAGuSI_KEGPsfUbit4k2sZBYMZsnrb87ADjGpycp0wJNsf94xLuX_Sya33W6PVOthA-VqzTM1-2cTSgOQe-fs08QtAbhcNQ8sSJZRkqJ2kwPNlIZ3RXprTFeB9c7dtpc0Nxe_hPQRBxNUW3iWOHuMJRofQUKLiosPdm4GvnZDXIbaz0IQGYZivxFBDLHs"/>
+</div>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim uppercase tracking-widest mb-xs">Software Development</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-sm group-hover:text-primary transition-colors">Doppler-fizika-projekt</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">
+                    2026-ban Fizika 1 tárgyból készített projektünk.
+                </p>
+<div class="flex flex-wrap gap-xs mt-auto pt-sm border-t border-outline-variant/30">
+<span class="font-code-md text-code-md text-primary bg-primary/10 px-xs py-base rounded">C++</span>
+</div>
+</article>
+<!-- Project Card 2: Prog1-Nagyhazi -->
+<article class="project-card md:col-span-6 bg-surface border border-outline-variant rounded flex flex-col p-md hover:border-primary transition-all group cursor-pointer" data-category="software" onclick="window.open('https://github.com/tothdomonkos06/Prog1-Nagyhazi', '_blank')">
+<div class="w-full h-48 bg-surface-container-highest rounded mb-sm overflow-hidden relative border border-outline-variant/50">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 mix-blend-luminosity group-hover:mix-blend-normal" data-alt="Abstract network" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHJbrJHSYrOWn78NjmHKvaqMMJGWvT6JVZrnMOWgfhMBHqPs8F71HYDStuyM31G92uQdiIsulYNhr52aBfV0NVawGRwk8YKf3hQdGX96TqYjl-FYXLp-bGLsuzxLo_J1k5clwJQMQTsLJoRhahUJqWfM9puCEgoVlnMHAPT44MqLiy203N98Za-wuHVdJ2GPM10JWSkkVzvNdZrfFyQA6AJs7wzCEXT8kzDYDn3KZujgUAyjbXqE-loOETX-UUDTUWC9vjApx_ukM"/>
+</div>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim uppercase tracking-widest mb-xs">Software Development</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-sm group-hover:text-primary transition-colors">Prog1-Nagyhazi</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">
+                    Prog1 tárgyból készített nagyházim újabb verziója.
+                </p>
+<div class="flex flex-wrap gap-xs mt-auto pt-sm border-t border-outline-variant/30">
+<span class="font-code-md text-code-md text-primary bg-primary/10 px-xs py-base rounded">C</span>
+</div>
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-low full-width border-t border-outline-variant dark:border-outline-variant flat no shadows">
+<div class="flex flex-col md:flex-row justify-between items-center w-full py-xl px-margin md:px-gutter max-w-screen-xl mx-auto gap-base hover:translate-y-[-1px] transition-transform duration-200">
+<!-- Brand & Copyright -->
+<div class="flex flex-col items-center md:items-start gap-xs">
+<span class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface">Tóth Domonkos</span>
+<span class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant">© 2024 Tóth Domonkos. Engineered for Performance.</span>
+</div>
+<!-- Links -->
+<ul class="flex gap-md items-center mt-sm md:mt-0">
+<li>
+<a class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary underline decoration-1 underline-offset-4 transition-all" href="#">
+                        LinkedIn
+                    </a>
+</li>
+<li>
+<a class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary underline decoration-1 underline-offset-4 transition-all" href="#">
+                        GitHub
+                    </a>
+</li>
+<li>
+<a class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary underline decoration-1 underline-offset-4 transition-all" href="#">
+                        BME
+                    </a>
+</li>
+<li>
+<a class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary underline decoration-1 underline-offset-4 transition-all" href="#">
+                        Email
+                    </a>
+</li>
+</ul>
+</div>
+</footer>
+<!-- Interactive Filtering Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Reset active state
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-primary/10', 'border-primary', 'text-primary');
+                        b.classList.add('border-outline-variant', 'text-on-surface-variant');
+                    });
+
+                    // Set active state on clicked
+                    btn.classList.add('bg-primary/10', 'border-primary', 'text-primary');
+                    btn.classList.remove('border-outline-variant', 'text-on-surface-variant');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    projectCards.forEach(card => {
+                        const categories = card.getAttribute('data-category').split(' ');
+                        
+                        if (filterValue === 'all' || categories.includes(filterValue)) {
+                            card.classList.remove('hidden');
+                            // Slight delay to allow display:block to apply before changing opacity
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.95)';
+                            setTimeout(() => {
+                                if(card.style.opacity === '0') {
+                                    card.classList.add('hidden');
+                                }
+                            }, 300); // match transition duration
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body></html>
