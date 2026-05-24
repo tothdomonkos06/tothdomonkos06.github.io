@@ -1,63 +1,76 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Injektáljuk a CSS-t, ami elrejti a gyári kurzort és formázza a miénket
+// Eltávolítottuk a DOMContentLoaded wrappert, hogy biztosan lefusson, mivel a body legvégén van meghívva
+(function() {
+    // 1. Injektáljuk a CSS-t
     const style = document.createElement('style');
     style.innerHTML = `
-        /* Elrejtjük az alapértelmezett egeret mindenhol */
-        * {
-            cursor: none !important;
+        /* Elrejtjük az egeret csak azokon az eszközökön, ahol van valódi egér */
+        @media (pointer: fine) {
+            * {
+                cursor: none !important;
+            }
         }
 
-        /* A custom terminál kurzor stílusai */
         #custom-terminal-cursor {
             position: fixed;
             top: 0;
             left: 0;
-            width: 12px;       /* Terminál kurzor szélessége */
-            height: 24px;      /* Terminál kurzor magassága */
-            background-color: #4edea3; /* A primary zöld színünk */
-            pointer-events: none; /* Ne blokkolja a kattintásokat */
-            z-index: 999999;   /* Legyen mindig legfelül */
-            animation: blink-cursor 1s step-end infinite; /* Szempillantó (villogó) effekt */
-            mix-blend-mode: difference; /* Jól néz ki világos és sötét felületen is, invertálja a színeket alatta */
-            transform-origin: top left;
+            width: 12px;
+            height: 24px;
+            background-color: #4edea3; /* Primary zöld */
+            pointer-events: none;
+            z-index: 999999;
+            animation: blink-cursor 1s step-end infinite;
+            /* Eltávolítottuk a mix-blend-mode-ot a kompatibilitás és jobb láthatóság miatt */
+            box-shadow: 0 0 10px rgba(78, 222, 163, 0.5); /* Kis neon fényháló */
+            transition: height 0.2s, margin-top 0.2s, background-color 0.2s;
+            margin-top: 0px;
         }
 
-        /* Villogó animáció */
         @keyframes blink-cursor {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
 
-        /* Ha valami kattintható dolog fölé visszük, picit megváltozhat (pl. alacsonyabb lesz, mint az _ karakter) */
+        /* Hover effektus: átalakul egy aláhúzássá */
         #custom-terminal-cursor.hover-active {
             height: 4px;
-            transform: translateY(20px); /* Lekerül alulra, mint egy aláhúzás */
+            margin-top: 20px; /* Lekerül alulra */
+            background-color: #10b981;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.8);
+            animation: none; /* Nem villog ha elemen vagyunk */
+            opacity: 1;
         }
     `;
     document.head.appendChild(style);
 
-    // 2. Létrehozzuk magát a kurzor HTML elemet (egy div-et)
+    // 2. Létrehozzuk a kurzor HTML elemet
     const cursor = document.createElement('div');
     cursor.id = 'custom-terminal-cursor';
-    document.body.appendChild(cursor);
+    
+    // Csak akkor adjuk hozzá, ha asztali gépről van szó (ahol van egér)
+    if (window.matchMedia('(pointer: fine)').matches) {
+        document.body.appendChild(cursor);
+    }
 
-    // 3. Követjük az egér mozgását és mozgatjuk a div-et
+    // 3. Követjük az egér mozgását
+    // A position: fixed miatt a clientX/Y tökéletesen megfelel, mert nem számít a scroll
     document.addEventListener('mousemove', (e) => {
-        // Translate3D-t használunk a hardveres gyorsítás (jobb teljesítmény) érdekében
-        // Az x és y koordináták pontosan az egér hegyéhez igazítják a doboz bal felső sarkát
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
     });
 
-    // +1 Interakció a kattintható elemekkel (gombok, linkek)
-    const interactiveElements = document.querySelectorAll('a, button, input, textarea, select, [onclick], .cursor-pointer, .project-card');
-    
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.classList.add('hover-active');
+    // +1 Interakció a kattintható elemekkel
+    // Egy MutationObserver-rel vagy sima timeout-tal érdemes várni kicsit, ha dinamikus az oldal, de így is jó
+    setTimeout(() => {
+        const interactiveElements = document.querySelectorAll('a, button, input, textarea, select, [onclick], .cursor-pointer, .project-card');
+        
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover-active');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover-active');
+            });
         });
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('hover-active');
-        });
-    });
-});
+    }, 500); // Kicsit várunk, hogy minden DOM elem renderelődjön
+})();
