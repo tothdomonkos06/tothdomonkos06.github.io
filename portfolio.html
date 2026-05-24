@@ -254,4 +254,46 @@
         }
     });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+        const cards = document.querySelectorAll('.project-card');
+        
+        cards.forEach(card => {
+            const titleElement = card.querySelector('h2');
+            if (!titleElement) return;
+            
+            titleElement.dataset.value = titleElement.innerText;
+            let interval = null;
+
+            card.addEventListener('mouseenter', event => {
+                let iteration = 0;
+                clearInterval(interval);
+                
+                interval = setInterval(() => {
+                    titleElement.innerText = titleElement.innerText
+                        .split("")
+                        .map((letter, index) => {
+                            if(index < iteration) {
+                                return titleElement.dataset.value[index];
+                            }
+                            return letters[Math.floor(Math.random() * letters.length)];
+                        })
+                        .join("");
+                    
+                    if(iteration >= titleElement.dataset.value.length){ 
+                        clearInterval(interval);
+                    }
+                    
+                    iteration += 1 / 2;
+                }, 30);
+            });
+            
+            card.addEventListener('mouseleave', event => {
+                clearInterval(interval);
+                titleElement.innerText = titleElement.dataset.value;
+            });
+        });
+    });
+<script src="cursor.js"></script>
 </body></html>
