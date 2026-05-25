@@ -1,7 +1,14 @@
 class SiteHeader extends HTMLElement {
     connectedCallback() {
+        // A custom element alapból inline, így a sticky pozíció nem működik rajta. 
+        // Blokk szintűvé kell tenni, és magát az elemet sticky-vé tenni.
+        this.style.display = 'block';
+        this.style.position = 'sticky';
+        this.style.top = '0';
+        this.style.zIndex = '50';
+
         this.innerHTML = `
-<nav class="bg-background/80 backdrop-blur-md border-b border-outline-variant w-full top-0 sticky z-50">
+<nav style="background-color: rgba(12, 19, 36, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);" class="border-b border-outline-variant w-full">
 <div class="flex justify-between items-center w-full px-margin md:px-gutter max-w-screen-xl mx-auto h-20">
 <div class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">
                 Tóth Domonkos
