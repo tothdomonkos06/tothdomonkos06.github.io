@@ -40,32 +40,11 @@
             color: #10b981;
         }
     </style>
+    <script src="components.js" defer></script>
 </head>
 <body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container">
 <!-- TopNavBar -->
-<nav class="bg-background dark:bg-background docked full-width top-0 sticky z-50 border-b border-outline-variant dark:border-outline-variant flat no shadows">
-<div class="flex justify-between items-center w-full px-margin md:px-gutter max-w-screen-xl mx-auto h-20">
-<div class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface tracking-tight">Tóth Domonkos</div>
-<div class="hidden md:flex gap-md items-center">
-<a class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors transition-all duration-200" href="index.html">Home</a>
-<a class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors transition-all duration-200" href="portfolio.html">Portfolio</a>
-<a class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors transition-all duration-200" href="aboutme.html">About</a>
-<a class="font-code-md text-code-md text-primary dark:text-primary border-b-2 border-primary pb-1 hover:text-primary dark:hover:text-primary transition-all duration-200 scale-95" href="contact.html">Contact</a>
-</div>
-<a href="https://www.linkedin.com/in/domonkos-tóth/" target="_blank" class="bg-primary-container text-on-primary-container font-label-sm text-label-sm px-sm py-xs rounded hover:bg-primary transition-colors hidden md:block">Hire Me</a>
-<button id="mobile-menu-btn" class="md:hidden text-on-surface hover:text-primary transition-colors">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
-<!-- Mobile Menu Dropdown -->
-<div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-surface-container-low border-b border-outline-variant shadow-lg flex-col py-md z-40 gap-xs">
-    <a href="index.html" class="px-gutter py-sm text-on-surface-variant hover:bg-surface-container-highest font-code-md text-code-md border-l-4 border-transparent">Home</a>
-    <a href="portfolio.html" class="px-gutter py-sm text-on-surface-variant hover:bg-surface-container-highest font-code-md text-code-md border-l-4 border-transparent">Portfolio</a>
-    <a href="aboutme.html" class="px-gutter py-sm text-on-surface-variant hover:bg-surface-container-highest font-code-md text-code-md border-l-4 border-transparent">About</a>
-    <a href="contact.html" class="px-gutter py-sm text-primary font-code-md text-code-md border-l-4 border-primary bg-primary/10">Contact</a>
-    <a href="https://www.linkedin.com/in/domonkos-tóth/" target="_blank" rel="noopener noreferrer" class="mx-gutter mt-sm bg-primary-container text-on-primary-container font-label-sm text-label-sm uppercase px-sm py-xs rounded text-center">Hire Me</a>
-</div>
-</nav>
+<site-header></site-header>
 <!-- Main Content Canvas -->
 <main class="flex-grow w-full px-margin md:px-gutter max-w-screen-xl mx-auto py-xl">
 <header class="mb-xl text-center md:text-left">
@@ -157,17 +136,7 @@ mQINBGEq7oEBEAC7...[TRUNCATED_FOR_DISPLAY]...
 </div>
 </main>
 <!-- Footer -->
-<footer class="bg-surface-container-low dark:bg-surface-container-low full-width border-t border-outline-variant dark:border-outline-variant flat no shadows mt-auto">
-<div class="flex flex-col md:flex-row justify-between items-center w-full py-xl px-margin md:px-gutter max-w-screen-xl mx-auto gap-base">
-<div class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant">© 2026 Tóth Domonkos. Engineered for Performance.</div>
-<div class="flex gap-md items-center">
-<a href="https://www.linkedin.com/in/domonkos-tóth/" target="_blank" class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary underline decoration-1 underline-offset-4 transition-all hover:translate-y-[-1px] transition-transform duration-200">LinkedIn</a>
-<a href="https://github.com/tothdomonkos06" target="_blank" class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary underline decoration-1 underline-offset-4 transition-all hover:translate-y-[-1px] transition-transform duration-200">GitHub</a>
-<a href="#" class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary underline decoration-1 underline-offset-4 transition-all hover:translate-y-[-1px] transition-transform duration-200">BME</a>
-<a href="mailto:tothdomonkos06@gmail.com" class="font-code-md text-code-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary underline decoration-1 underline-offset-4 transition-all hover:translate-y-[-1px] transition-transform duration-200">Email</a>
-</div>
-</div>
-</footer>
+<site-footer></site-footer>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const terminal = document.querySelector('.terminal-typewriter');
@@ -216,16 +185,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(typeChar, 300);
 });
 </script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        if (btn && menu) {
-            btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-                menu.classList.toggle('flex');
-            });
-        }
-    });
 <script src="cursor.js"></script>
 </body></html>
