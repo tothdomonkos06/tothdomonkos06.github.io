@@ -94,7 +94,7 @@ export default function Portfolio() {
             );
           })}
         </div>
-      </section>
+      </motion.section>
 
       <motion.div layout className="grid grid-cols-1 md:grid-cols-12 gap-md">
         <AnimatePresence mode="popLayout">
