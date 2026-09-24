@@ -1,49 +1,25 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { ChevronDown, Send, Code, Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
+import { TerminalBlock } from "@/components/shared/TerminalBlock";
 
 export default function Contact() {
-  const [terminalText, setTerminalText] = useState("");
-  
-  const terminalSequence = [
-    { text: "$ whoami\n", delay: 300 },
-    { text: "> Tóth Domonkos\n> Computer Engineer\n", delay: 100 },
-    { text: "\n$ cat contact_info.json\n", delay: 500 },
-    { text: '{\n  "email": "tothdomonkos06@gmail.com",\n  "location": "Budapest, HU",\n  "timezone": "UTC+1"\n}\n', delay: 100 },
-    { text: "\n$ get_pgp_key\n", delay: 600 },
-    { text: "-----BEGIN PGP PUBLIC KEY BLOCK-----\nmQINBGEq7oEBEAC7...[TRUNCATED_FOR_DISPLAY]...\n-----END PGP PUBLIC KEY BLOCK-----\n", delay: 100 }
-  ];
+  const contactCode = `$ whoami
+> Tóth Domonkos
+> Computer Engineer
 
-  useEffect(() => {
-    let currentText = "";
-    let step = 0;
-    let charIndex = 0;
-    let timeout: NodeJS.Timeout;
+$ cat contact_info.json
+{
+  "email": "tothdomonkos06@gmail.com",
+  "location": "Budapest, HU",
+  "timezone": "UTC+1"
+}
 
-    const typeNext = () => {
-      if (step >= terminalSequence.length) return;
-      
-      const currentSequence = terminalSequence[step];
-      
-      if (charIndex < currentSequence.text.length) {
-        currentText += currentSequence.text.charAt(charIndex);
-        setTerminalText(currentText);
-        charIndex++;
-        timeout = setTimeout(typeNext, 10);
-      } else {
-        step++;
-        charIndex = 0;
-        if (step < terminalSequence.length) {
-          timeout = setTimeout(typeNext, terminalSequence[step].delay);
-        }
-      }
-    };
-
-    timeout = setTimeout(typeNext, 300);
-    return () => clearTimeout(timeout);
-  }, []);
+$ get_pgp_key
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+mQINBGEq7oEBEAC7...[TRUNCATED_FOR_DISPLAY]...
+-----END PGP PUBLIC KEY BLOCK-----`;
 
   return (
     <main className="flex-grow w-full px-margin md:px-gutter max-w-screen-xl mx-auto py-xl relative z-10">
@@ -111,24 +87,7 @@ export default function Contact() {
           className="col-span-4 md:col-span-5 flex flex-col gap-lg"
         >
           {/* Terminal Contact Info */}
-          <div className="bg-[#0f172a] border border-[#334155] rounded-lg overflow-hidden font-code-md text-[14px] text-on-surface flex flex-col min-h-[300px]">
-            <div className="bg-[#1e293b] border-b border-[#334155] px-sm py-xs flex items-center">
-              <div className="w-3 h-3 rounded-full bg-[#ff5f56] mr-1.5" />
-              <div className="w-3 h-3 rounded-full bg-[#ffbd2e] mr-1.5" />
-              <div className="w-3 h-3 rounded-full bg-[#27c93f] mr-1.5" />
-              <div className="ml-sm text-on-surface-variant text-[12px]">contact@tothdomonkos.sh</div>
-            </div>
-            <div className="p-sm flex-grow flex flex-col gap-xs bg-[#050914]">
-              <div className="whitespace-pre-wrap">
-                {terminalText}
-                <motion.span 
-                  animate={{ opacity: [1, 0] }}
-                  transition={{ repeat: Infinity, duration: 0.8 }}
-                  className="inline-block w-2 h-4 bg-primary align-middle ml-1"
-                />
-              </div>
-            </div>
-          </div>
+          <TerminalBlock filename="contact@tothdomonkos.sh" code={contactCode} />
           
           {/* External Links Bento */}
           <div className="grid grid-cols-2 gap-sm">
