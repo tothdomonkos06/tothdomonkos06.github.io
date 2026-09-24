@@ -49,22 +49,33 @@ export default function Portfolio() {
   return (
     <main className="flex-grow w-full max-w-screen-xl mx-auto px-margin md:px-gutter py-xl relative z-10">
       
-      <header className="mb-xl max-w-3xl">
+      <motion.header 
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="mb-xl max-w-3xl"
+      >
         <h1 className="font-headline-xl text-[48px] text-on-surface mb-sm">Portfolio</h1>
         <p className="font-code-md text-[16px] md:text-[18px] text-secondary mb-md leading-relaxed">
           A collection of projects built during my first year at BME. From low-level C to cross-platform mobile apps — each one taught me something new.
         </p>
         <div className="flex gap-sm">
-          <a href="https://github.com/tothdomonkos06" target="_blank" rel="noopener noreferrer" className="flex items-center gap-xs text-on-surface-variant font-code-md text-[14px] bg-surface-container-low border border-outline-variant px-sm py-xs rounded hover:text-primary hover:border-primary transition-colors">
+          <a href="https://github.com/tothdomonkos06" target="_blank" rel="noopener noreferrer" className="flex items-center gap-xs text-on-surface-variant font-code-md text-[14px] bg-surface-container-low border border-outline-variant px-sm py-xs rounded hover:text-primary hover:border-primary transition-all hover:-translate-y-1">
             <Code size={18} /> GitHub
           </a>
-          <a href="https://www.linkedin.com/in/domonkos-t%C3%B3th/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-xs text-on-surface-variant font-code-md text-[14px] bg-surface-container-low border border-outline-variant px-sm py-xs rounded hover:text-primary hover:border-primary transition-colors">
+          <a href="https://www.linkedin.com/in/domonkos-t%C3%B3th/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-xs text-on-surface-variant font-code-md text-[14px] bg-surface-container-low border border-outline-variant px-sm py-xs rounded hover:text-primary hover:border-primary transition-all hover:-translate-y-1">
             <User size={18} /> LinkedIn
           </a>
         </div>
-      </header>
+      </motion.header>
 
-      <section aria-label="Project Categories" className="mb-lg">
+      <motion.section 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        aria-label="Project Categories" 
+        className="mb-lg"
+      >
         <div className="flex flex-wrap gap-xs">
           {CATEGORIES.map((category) => {
             const isActive = activeFilter === category.id;

@@ -73,10 +73,10 @@ public:
 
       {/* Education Bento */}
       <motion.section 
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
         className="flex flex-col gap-md"
       >
         <h2 className="font-headline-lg text-[32px] text-on-surface border-b border-outline-variant pb-xs">Education Context</h2>
@@ -119,10 +119,10 @@ public:
 
       {/* Technical Stack */}
       <motion.section 
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
         className="flex flex-col gap-md"
       >
         <h2 className="font-headline-lg text-[32px] text-on-surface border-b border-outline-variant pb-xs">Technical Stack</h2>
@@ -176,10 +176,10 @@ public:
 
       {/* Beyond the Screen */}
       <motion.section 
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
         className="flex flex-col gap-md"
       >
         <h2 className="font-headline-lg text-[32px] text-on-surface border-b border-outline-variant pb-xs">Beyond the Screen</h2>
