@@ -5,21 +5,14 @@ import { motion } from "framer-motion";
 import { TerminalBlock } from "@/components/shared/TerminalBlock";
 
 export default function Contact() {
-  const contactCode = `$ whoami
-> Tóth Domonkos
-> Computer Engineer
-
-$ cat contact_info.json
-{
-  "email": "tothdomonkos06@gmail.com",
-  "location": "Budapest, HU",
-  "timezone": "UTC+1"
-}
-
-$ get_pgp_key
------BEGIN PGP PUBLIC KEY BLOCK-----
-mQINBGEq7oEBEAC7...[TRUNCATED_FOR_DISPLAY]...
------END PGP PUBLIC KEY BLOCK-----`;
+  const contactSequence = [
+    { text: "$ whoami\n", delay: 300 },
+    { text: "> Tóth Domonkos\n> Computer Engineer\n", delay: 100 },
+    { text: "\n$ cat contact_info.json\n", delay: 500 },
+    { text: '{\n  "email": "tothdomonkos06@gmail.com",\n  "location": "Budapest, HU",\n  "timezone": "UTC+1"\n}\n', delay: 100 },
+    { text: "\n$ get_pgp_key\n", delay: 600 },
+    { text: "-----BEGIN PGP PUBLIC KEY BLOCK-----\nmQINBGEq7oEBEAC7...[TRUNCATED_FOR_DISPLAY]...\n-----END PGP PUBLIC KEY BLOCK-----\n", delay: 100 }
+  ];
 
   return (
     <main className="flex-grow w-full px-margin md:px-gutter max-w-screen-xl mx-auto py-xl relative z-10">
@@ -87,7 +80,7 @@ mQINBGEq7oEBEAC7...[TRUNCATED_FOR_DISPLAY]...
           className="col-span-4 md:col-span-5 flex flex-col gap-lg"
         >
           {/* Terminal Contact Info */}
-          <TerminalBlock filename="contact@tothdomonkos.sh" code={contactCode} />
+          <TerminalBlock filename="contact@tothdomonkos.sh" sequence={contactSequence} />
           
           {/* External Links Bento */}
           <div className="grid grid-cols-2 gap-sm">

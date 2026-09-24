@@ -5,19 +5,11 @@ import { TerminalBlock } from "@/components/shared/TerminalBlock";
 import { motion } from "framer-motion";
 
 export default function About() {
-  const codeSnippet = `class Doma {
-public:
-    Doma() {
-        university = "BME";
-        major = "Computer Eng.";
-        interests = ["Algorithms", "Systems"];
-    }
-
-    void runMarathon() {
-        // Consistent training...
-        keepPace(250); // optimize performance
-    }
-};`;
+  const codeSnippet = [
+    { text: "class Doma {\npublic:\n    Doma() {\n", delay: 200 },
+    { text: "        university = \"BME\";\n        major = \"Computer Eng.\";\n        interests = [\"Algorithms\", \"Systems\"];\n    }\n\n", delay: 500 },
+    { text: "    void runMarathon() {\n        // Consistent training...\n        keepPace(250); // optimize performance\n    }\n};\n", delay: 300 }
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -67,7 +59,7 @@ public:
         </motion.div>
         
         <motion.div variants={itemVariants} className="md:col-span-5 w-full mt-lg md:mt-0">
-          <TerminalBlock filename="profile.cpp" code={codeSnippet} />
+          <TerminalBlock filename="profile.cpp" sequence={codeSnippet} />
         </motion.div>
       </motion.section>
 
