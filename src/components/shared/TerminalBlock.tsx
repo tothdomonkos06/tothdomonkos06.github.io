@@ -20,12 +20,13 @@ export function TerminalBlock({ filename, code }: TerminalBlockProps) {
         
         // Randomize typing speed slightly for realism
         const char = code[prev];
-        let nextDelay = Math.random() * 40 + 30; // 30-70ms per character
+        let nextDelay = Math.random() * 80 + 70; // 70-150ms per character
         
-        // Add pauses for realism (newline or punctuation)
-        if (char === '\n') nextDelay += 300;
-        if (char === '{' || char === '}') nextDelay += 150;
-        if (char === ';') nextDelay += 100;
+        // Add prominent pauses for realism (newline or punctuation)
+        if (char === '\n') nextDelay += 800; // Long pause on newline
+        if (char === '{' || char === '}') nextDelay += 400;
+        if (char === ';') nextDelay += 300;
+        if (char === ' ') nextDelay += 50; // Slight pause on space
         
         timeout = setTimeout(typeNextChar, nextDelay);
         

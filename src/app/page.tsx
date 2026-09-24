@@ -7,6 +7,7 @@ import { Terminal, Code, User, Network } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { TextReveal } from "@/components/ui/TextReveal";
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -32,8 +33,8 @@ export default function Home() {
             <span className="font-label-sm text-[12px] text-primary uppercase tracking-widest">BME Computer Engineering</span>
           </div>
           
-          <h1 className="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface">
-            Computer Engineering Student at BME | Interested in Software Development &amp; Algorithms
+          <h1 className="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface leading-tight">
+            <TextReveal text="Computer Engineering Student at BME | Interested in Software Development & Algorithms" />
           </h1>
           
           <p className="font-code-md text-[16px] md:text-[18px] text-secondary max-w-3xl mt-sm leading-relaxed">

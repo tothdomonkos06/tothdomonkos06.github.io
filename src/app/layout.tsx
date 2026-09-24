@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { InteractiveBackground } from "@/components/layout/InteractiveBackground";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,8 @@ export default function RootLayout({
       lang="en"
       className={`dark ${geistSans.variable} ${jetbrainsMono.variable} h-full antialiased selection:bg-primary-container selection:text-on-primary-container`}
     >
-      <body className="min-h-full flex flex-col relative">
+      <body className="min-h-full flex flex-col relative cursor-none">
+        <CustomCursor />
         <SmoothScroll>
           <InteractiveBackground />
           <Navbar />
