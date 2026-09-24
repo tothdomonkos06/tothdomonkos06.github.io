@@ -1,10 +1,12 @@
 "use client";
 
+
 import Link from "next/link";
 import Image from "next/image";
 import { Terminal, Code, User, Network } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -27,7 +29,7 @@ export default function Home() {
         >
           <div className="flex items-center gap-xs">
             <Terminal className="text-primary" size={20} />
-            <span className="font-label-sm text-[12px] text-primary uppercase">BME Computer Engineering</span>
+            <span className="font-label-sm text-[12px] text-primary uppercase tracking-widest">BME Computer Engineering</span>
           </div>
           
           <h1 className="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface">
@@ -39,31 +41,37 @@ export default function Home() {
           </p>
           
           <div className="flex flex-wrap gap-sm pt-xs">
-            <Link 
-              href="/portfolio" 
-              className="bg-primary-container text-on-primary-container font-label-sm text-[12px] uppercase px-md py-sm rounded hover:bg-primary transition-colors flex items-center gap-xs shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_25px_rgba(16,185,129,0.4)]"
-            >
-              <Network size={18} />
-              Explore Architecture
-            </Link>
-            <a 
-              href="https://github.com/tothdomonkos06" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="bg-transparent border border-outline-variant text-on-surface font-label-sm text-[12px] uppercase px-md py-sm rounded hover:border-primary hover:text-primary transition-all flex items-center gap-xs hover:-translate-y-1"
-            >
-              <Code size={18} />
-              View GitHub
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/domonkos-t%C3%B3th/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="bg-transparent border border-outline-variant text-on-surface font-label-sm text-[12px] uppercase px-md py-sm rounded hover:border-primary hover:text-primary transition-all flex items-center gap-xs hover:-translate-y-1"
-            >
-              <User size={18} />
-              LinkedIn
-            </a>
+            <Magnetic>
+              <Link 
+                href="/portfolio" 
+                className="bg-primary-container text-on-primary-container font-label-sm text-[12px] uppercase px-md py-sm rounded hover:bg-primary transition-colors flex items-center gap-xs shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_25px_rgba(16,185,129,0.4)]"
+              >
+                <Network size={18} />
+                Explore Architecture
+              </Link>
+            </Magnetic>
+            <Magnetic>
+              <a 
+                href="https://github.com/tothdomonkos06" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-transparent border border-outline-variant text-on-surface font-label-sm text-[12px] uppercase px-md py-sm rounded hover:border-primary hover:text-primary transition-all flex items-center gap-xs hover:-translate-y-1"
+              >
+                <Code size={18} />
+                View GitHub
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a 
+                href="https://www.linkedin.com/in/domonkos-t%C3%B3th/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-transparent border border-outline-variant text-on-surface font-label-sm text-[12px] uppercase px-md py-sm rounded hover:border-primary hover:text-primary transition-all flex items-center gap-xs hover:-translate-y-1"
+              >
+                <User size={18} />
+                LinkedIn
+              </a>
+            </Magnetic>
           </div>
         </motion.div>
 

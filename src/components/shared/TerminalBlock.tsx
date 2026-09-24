@@ -19,7 +19,14 @@ export function TerminalBlock({ filename, code }: TerminalBlockProps) {
         if (prev >= code.length) return prev;
         
         // Randomize typing speed slightly for realism
-        const nextDelay = Math.random() * 20 + 10;
+        const char = code[prev];
+        let nextDelay = Math.random() * 40 + 30; // 30-70ms per character
+        
+        // Add pauses for realism (newline or punctuation)
+        if (char === '\n') nextDelay += 300;
+        if (char === '{' || char === '}') nextDelay += 150;
+        if (char === ';') nextDelay += 100;
+        
         timeout = setTimeout(typeNextChar, nextDelay);
         
         return prev + 1;
