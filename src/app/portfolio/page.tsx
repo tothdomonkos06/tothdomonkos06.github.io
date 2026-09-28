@@ -37,6 +37,17 @@ const PROJECTS = [
     video: null,
     tags: ["C"],
   },
+  {
+    id: 3,
+    title: "Race Fuel Planner",
+    category: "software",
+    categoryLabel: "Software Development",
+    description: "Webapp, ami az adataid és a versenyterved alapján személyre szabott frissítési, hidratálási és elektrolit stratégiát készít futóversenyekre.",
+    image: "/run-fuel-planner.png",
+    link: "/projects/run-fuel-planner/index.html",
+    video: null,
+    tags: ["HTML", "CSS", "JavaScript"],
+  },
 ];
 
 export default function Portfolio() {
