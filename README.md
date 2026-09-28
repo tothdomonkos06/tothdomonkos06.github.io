@@ -2,7 +2,7 @@
 
 🌐 **[tothdomonkos.me](https://tothdomonkos.me)**
 
-Tóth Domonkos vagyok, mérnökinformatikus hallgató a BME-n. Érdekel az IT és a szoftverfejlesztés, a szabadidőmben pedig maratont futok.
+Tóth Domonkos vagyok, mérnökinformatikus hallgató a BME-n. Érdekel az IT és a szoftverfejlesztés, a szabadidőmben futni szoktam.
 
 Ez a személyes weboldalam forráskódja. Itt mutatom be magam és az egyetemen, illetve szabadidőmben készült projektjeimet.
 
