@@ -48,6 +48,17 @@ const PROJECTS = [
     video: null,
     tags: ["HTML", "CSS", "JavaScript"],
   },
+  {
+    id: 4,
+    title: "Washing Expert",
+    category: "software",
+    categoryLabel: "Software Development",
+    description: "Webapp, ami a ruha típusa és anyaga alapján megmondja a mosási programot, a hőfokot, a mosószert és a szárítás módját.",
+    image: "/washing-expert.png",
+    link: "/projects/washing-expert/index.html",
+    video: null,
+    tags: ["HTML", "CSS", "JavaScript"],
+  },
 ];
 
 export default function Portfolio() {
