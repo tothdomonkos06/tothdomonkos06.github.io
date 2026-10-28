@@ -10,16 +10,21 @@ import {
   useTransform,
   useVelocity,
 } from "framer-motion";
+import { useLang } from "@/lib/i18n";
 
 const ROW_A = ["C", "C++", "Java", "TypeScript", "React", "Next.js", "Tailwind CSS", "Framer Motion"];
-const ROW_B = ["Git", "Maven", "JUnit", "Verilog", "FPGA", "Algorithms", "OOP", "Assembly"];
+const ROW_B = {
+  hu: ["Git", "Maven", "JUnit", "Verilog", "FPGA", "Algoritmusok", "OOP", "Assembly"],
+  en: ["Git", "Maven", "JUnit", "Verilog", "FPGA", "Algorithms", "OOP", "Assembly"],
+};
 
 /** Two endless rows that drift in opposite directions and speed up and skew with scroll speed. */
 export function StackMarquee() {
+  const { lang } = useLang();
   return (
     <div className="relative overflow-hidden border-y border-white/[0.06] py-10 [mask-image:linear-gradient(to_right,transparent,#000_12%,#000_88%,transparent)]">
       <Row items={ROW_A} baseVelocity={-2.2} />
-      <Row items={ROW_B} baseVelocity={2.2} outline />
+      <Row items={ROW_B[lang]} baseVelocity={2.2} outline />
     </div>
   );
 }

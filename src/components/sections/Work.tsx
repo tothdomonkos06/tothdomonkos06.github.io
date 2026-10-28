@@ -14,10 +14,12 @@ import { ArrowUpRight, Play } from "lucide-react";
 import { GithubIcon } from "@/components/shared/BrandIcons";
 import { PROJECTS, type Project } from "@/lib/site";
 import { Reveal } from "@/components/shared/Reveal";
+import { useLang, useT } from "@/lib/i18n";
 
 const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 export function Work() {
+  const t = useT();
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const [distance, setDistance] = useState(0);
@@ -74,11 +76,11 @@ export function Work() {
 
         {pinned && (
           <div className="mx-auto mt-12 flex w-full max-w-6xl items-center gap-4 px-6 font-mono text-xs text-zinc-500">
-            <span>Scroll</span>
+            <span>{t.work.scroll}</span>
             <div className="h-px flex-1 overflow-hidden bg-white/10">
               <motion.div style={{ scaleX: barScale }} className="h-full origin-left bg-white" />
             </div>
-            <span>{String(PROJECTS.length).padStart(2, "0")} projects</span>
+            <span>{t.work.count(PROJECTS.length)}</span>
           </div>
         )}
       </div>
@@ -87,23 +89,23 @@ export function Work() {
 }
 
 function Intro({ pinned }: { pinned: boolean }) {
+  const t = useT();
   return (
     <div className={pinned ? "flex w-[min(420px,32vw)] shrink-0 flex-col justify-center" : "mb-8 max-w-2xl"}>
       <Reveal>
-        <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">01 — Selected work</p>
+        <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">{t.work.eyebrow}</p>
         <h2 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-6xl">
-          Things I&apos;ve built
+          {t.work.title}
         </h2>
-        <p className="mt-5 text-pretty leading-relaxed text-zinc-400 sm:text-lg">
-          University projects and side projects, from a terminal game in C to web apps you can use
-          right in the browser.
-        </p>
+        <p className="mt-5 text-pretty leading-relaxed text-zinc-400 sm:text-lg">{t.work.intro}</p>
       </Reveal>
     </div>
   );
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const { lang } = useLang();
+  const t = useT();
   const ref = useRef<HTMLElement>(null);
   const mx = useMotionValue(0.5);
   const my = useMotionValue(0.5);
@@ -146,7 +148,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <div className="relative aspect-[16/10] overflow-hidden">
             <Image
               src={project.image}
-              alt={`${project.title} screenshot`}
+              alt={`${project.title} ${t.work.screenshot}`}
               fill
               sizes="(max-width: 1024px) 100vw, 560px"
               className="object-cover object-left-top opacity-80 grayscale-[40%] transition-all duration-700 ease-out group-hover:scale-[1.05] group-hover:opacity-100 group-hover:grayscale-0"
@@ -160,7 +162,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
         <div className="relative z-20 flex flex-1 flex-col p-5 sm:p-6" style={{ transform: "translateZ(20px)" }}>
           <div className="mb-3 flex items-center justify-between font-mono text-xs text-zinc-500">
-            <span>{project.kind}</span>
+            <span>{project.kind[lang]}</span>
             <span>{project.year}</span>
           </div>
 
@@ -175,7 +177,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             )}
           </h3>
 
-          <p className="mt-3 text-pretty leading-relaxed text-zinc-400">{project.description}</p>
+          <p className="mt-3 text-pretty leading-relaxed text-zinc-400">{project.description[lang]}</p>
 
           <div className="mt-auto flex flex-wrap items-center gap-2 pt-6">
             {project.tags.map((tag) => (
@@ -185,12 +187,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             ))}
             <div className="relative z-30 ml-auto flex items-center gap-1">
               {project.code && project.live && (
-                <IconLink href={project.code} label="Source code">
+                <IconLink href={project.code} label={t.work.source}>
                   <GithubIcon className="size-4" />
                 </IconLink>
               )}
               {project.video && (
-                <IconLink href={project.video} label="Video demo">
+                <IconLink href={project.video} label={t.work.video}>
                   <Play className="size-4" />
                 </IconLink>
               )}

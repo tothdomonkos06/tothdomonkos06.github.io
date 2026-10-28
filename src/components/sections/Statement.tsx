@@ -2,9 +2,9 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { useT } from "@/lib/i18n";
 
-const TEXT =
-  "I like understanding a system all the way down to the bits, then making the part people actually touch feel effortless.";
+const clean = (w: string) => w.replace(/[.,!?;:]/g, "");
 
 /**
  * Pinned statement: the section sticks to the screen while each word lights
@@ -12,8 +12,10 @@ const TEXT =
  */
 export function Statement() {
   const ref = useRef<HTMLDivElement>(null);
+  const t = useT();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  const words = TEXT.split(" ");
+  const words = t.statement.text.split(" ");
+  const highlight = new Set(t.statement.highlight);
 
   const scale = useTransform(scrollYProgress, [0.85, 1], [1, 0.92]);
   const fade = useTransform(scrollYProgress, [0.85, 1], [1, 0.25]);
@@ -29,7 +31,7 @@ export function Statement() {
             const start = (i / words.length) * 0.8;
             const end = start + 0.8 / words.length;
             return (
-              <Word key={i} progress={scrollYProgress} range={[start, end]}>
+              <Word key={`${word}-${i}`} progress={scrollYProgress} range={[start, end]} highlight={highlight.has(clean(word))}>
                 {word}
               </Word>
             );
@@ -44,16 +46,17 @@ function Word({
   children,
   progress,
   range,
+  highlight,
 }: {
   children: string;
   progress: MotionValue<number>;
   range: [number, number];
+  highlight: boolean;
 }) {
   const opacity = useTransform(progress, range, [0.12, 1]);
   const y = useTransform(progress, range, [12, 0]);
   const blur = useTransform(progress, range, [8, 0]);
   const filter = useTransform(blur, (b) => `blur(${b}px)`);
-  const highlight = /bits|effortless/.test(children);
 
   return (
     <motion.span

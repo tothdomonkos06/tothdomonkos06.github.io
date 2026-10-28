@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import FlowField from "@/components/kokonutui/flow-field";
 import { Magnetic } from "@/components/shared/Magnetic";
+import { useLang, useT } from "@/lib/i18n";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -61,6 +62,8 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
   const blur = useTransform(scrollYProgress, [0, 0.7], [0, 12]);
   const filter = useTransform(blur, (b) => `blur(${b}px)`);
+  const { lang } = useLang();
+  const t = useT();
 
   return (
     <section id="top" ref={ref} className="relative flex min-h-svh items-center justify-center overflow-hidden bg-black">
@@ -85,13 +88,14 @@ export function Hero() {
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-60" />
               <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
             </span>
-            Computer Engineering @ BME · Budapest
+            {t.hero.badge}
           </motion.div>
 
           <h1 className="text-balance text-[2.6rem] font-semibold leading-[1.02] tracking-tighter sm:text-7xl md:text-8xl">
-            <FlipLetters text="Tóth Domonkos" delay={0.3} />
+            <FlipLetters key={`a-${lang}`} text={t.hero.line1} delay={0.3} />
             <FlipLetters
-              text="builds software."
+              key={`b-${lang}`}
+              text={t.hero.line2}
               delay={0.75}
               className="mt-2 pb-2"
               letterClassName="bg-gradient-to-b from-zinc-200 to-zinc-600 bg-clip-text text-transparent"
@@ -102,8 +106,7 @@ export function Hero() {
             {...fadeUp(1.3)}
             className="mt-8 max-w-xl text-pretty text-base leading-relaxed text-zinc-400 sm:text-lg"
           >
-            From low-level C to fast, polished web apps. I study computer engineering, ship side
-            projects that solve real problems, and train for marathons in between.
+            {t.hero.intro}
           </motion.p>
 
           <motion.div {...fadeUp(1.45)} className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -112,7 +115,7 @@ export function Hero() {
                 href="#work"
                 className="group inline-flex h-11 items-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black transition-colors hover:bg-zinc-200"
               >
-                See my work
+                {t.hero.work}
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </a>
             </Magnetic>
@@ -121,7 +124,7 @@ export function Hero() {
                 href="#contact"
                 className="inline-flex h-11 items-center rounded-full border border-white/15 bg-black/40 px-6 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:border-white/30 hover:bg-white/5"
               >
-                Get in touch
+                {t.hero.contact}
               </a>
             </Magnetic>
           </motion.div>
@@ -129,7 +132,7 @@ export function Hero() {
 
         <motion.a
           href="#work"
-          aria-label="Scroll to work"
+          aria-label={t.hero.scroll}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}

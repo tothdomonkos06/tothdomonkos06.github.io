@@ -2,15 +2,18 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-
-const LINKS = [
-  { href: "#work", label: "Work" },
-  { href: "#about", label: "About" },
-  { href: "#stack", label: "Stack" },
-];
+import { useT } from "@/lib/i18n";
+import { LanguageToggle } from "@/components/layout/LanguageToggle";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const t = useT();
+
+  const links = [
+    { href: "#work", label: t.nav.work },
+    { href: "#about", label: t.nav.about },
+    { href: "#stack", label: t.nav.stack },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -29,19 +32,22 @@ export function Navbar() {
             : "border-transparent bg-transparent"
         )}
       >
-        <a
-          href="#top"
-          className="flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium text-white"
-          aria-label="Tóth Domonkos, back to top"
-        >
-          <span className="grid size-6 place-items-center rounded-full bg-white font-mono text-[10px] font-bold text-black">
-            TD
-          </span>
-          <span className="inline">Tóth Domonkos</span>
-        </a>
+        <div className="flex items-center gap-1 pl-1">
+          <LanguageToggle />
+          <a
+            href="#top"
+            className="flex items-center gap-2 rounded-full px-2 py-1.5 text-sm font-medium text-white"
+            aria-label={t.nav.top}
+          >
+            <span className="grid size-6 place-items-center rounded-full bg-white font-mono text-[10px] font-bold text-black">
+              TD
+            </span>
+            <span className="inline">Tóth Domonkos</span>
+          </a>
+        </div>
 
         <div className="flex items-center gap-1">
-          {LINKS.map((link) => (
+          {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -54,7 +60,7 @@ export function Navbar() {
             href="#contact"
             className="ml-1 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-black transition-colors hover:bg-zinc-200"
           >
-            Contact
+            {t.nav.contact}
           </a>
         </div>
       </nav>
