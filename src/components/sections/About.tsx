@@ -5,6 +5,7 @@ import { GraduationCap, Music, Timer } from "lucide-react";
 import { STACK } from "@/lib/site";
 import { useLang, useT } from "@/lib/i18n";
 import { Reveal, SectionHeading } from "@/components/shared/Reveal";
+import { Counter } from "@/components/shared/Counter";
 
 export function About() {
   const { lang } = useLang();
@@ -20,7 +21,7 @@ export function About() {
       <div className="grid gap-4 md:grid-cols-6">
         <Reveal className="md:col-span-4">
           <Tile className="h-full">
-            <TileLabel icon={<GraduationCap className="size-4" />}>{a.education}</TileLabel>
+            <TileLabel icon={<GraduationCap className="size-4 text-violet" />}>{a.education}</TileLabel>
             <h3 className="mt-6 text-2xl font-semibold tracking-tight text-white">{a.school}</h3>
             <p className="mt-2 text-zinc-400">{a.degree}</p>
             <div className="mt-8 flex flex-wrap gap-2">
@@ -37,10 +38,12 @@ export function About() {
           <Tile className="flex h-full flex-col justify-between">
             <TileLabel>{a.graduation}</TileLabel>
             <div>
-              <p className="mt-6 font-mono text-6xl font-semibold tracking-tighter text-white">2029</p>
+              <p className="mt-6 font-mono text-6xl font-semibold tracking-tighter text-white">
+                <Counter from={2000} to={2029} />
+              </p>
               <div className="mt-6 h-1 overflow-hidden rounded-full bg-white/[0.06]">
                 <motion.div
-                  className="h-full origin-left rounded-full bg-white"
+                  className="h-full origin-left rounded-full bg-gradient-to-r from-ember to-ember-soft"
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 0.3 }}
                   viewport={{ once: true }}
@@ -54,7 +57,7 @@ export function About() {
 
         <Reveal className="md:col-span-3">
           <Tile className="h-full">
-            <TileLabel icon={<Timer className="size-4" />}>{a.running}</TileLabel>
+            <TileLabel icon={<Timer className="size-4 text-ember" />}>{a.running}</TileLabel>
             <h3 className="mt-6 text-xl font-semibold text-white">{a.runningTitle}</h3>
             <p className="mt-3 leading-relaxed text-zinc-400">{a.runningText}</p>
           </Tile>
@@ -62,8 +65,11 @@ export function About() {
 
         <Reveal className="md:col-span-3" delay={0.1}>
           <Tile className="h-full">
-            <TileLabel icon={<Music className="size-4" />}>{a.music}</TileLabel>
-            <h3 className="mt-6 text-xl font-semibold text-white">{a.musicTitle}</h3>
+            <TileLabel icon={<Music className="size-4 text-mint" />}>{a.music}</TileLabel>
+            <h3 className="mt-6 flex items-baseline gap-3 text-xl font-semibold text-white">
+              <Counter to={12} className="font-mono text-5xl tracking-tighter text-mint" />
+              {a.musicYears}
+            </h3>
             <p className="mt-3 leading-relaxed text-zinc-400">{a.musicText}</p>
           </Tile>
         </Reveal>

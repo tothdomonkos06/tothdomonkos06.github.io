@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import { MotionConfig, motion, useScroll, useSpring } from "framer-motion";
 import { motionDisabled } from "@/lib/motion";
+import { setLenis } from "@/lib/scroll";
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const still = motionDisabled();
@@ -16,9 +17,15 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       anchors: { offset: -80 },
       autoRaf: true,
+      // Let scrollable areas inside a modal scroll on their own.
+      prevent: (node) => !!node.closest("[data-lenis-prevent]"),
     });
+    setLenis(lenis);
 
-    return () => lenis.destroy();
+    return () => {
+      setLenis(null);
+      lenis.destroy();
+    };
   }, []);
 
   return (
@@ -36,7 +43,7 @@ function ScrollProgress() {
     <motion.div
       aria-hidden
       style={{ scaleX }}
-      className="fixed inset-x-0 top-0 z-[60] h-px origin-left bg-gradient-to-r from-transparent via-white to-white"
+      className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-ember via-ember-soft to-mint"
     />
   );
 }

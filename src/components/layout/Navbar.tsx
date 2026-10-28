@@ -1,18 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useT } from "@/lib/i18n";
 import { LanguageToggle } from "@/components/layout/LanguageToggle";
+import { RollText } from "@/components/shared/RollText";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const t = useT();
 
   const links = [
+    { href: "#services", label: t.nav.services },
     { href: "#work", label: t.nav.work },
     { href: "#about", label: t.nav.about },
-    { href: "#stack", label: t.nav.stack },
   ];
 
   useEffect(() => {
@@ -48,20 +50,26 @@ export function Navbar() {
 
         <div className="flex items-center gap-1">
           {links.map((link) => (
-            <a
+            <motion.a
               key={link.href}
               href={link.href}
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
               className="hidden rounded-full px-3 py-1.5 text-sm text-zinc-400 transition-colors hover:bg-white/5 hover:text-white sm:inline-block"
             >
-              {link.label}
-            </a>
+              <RollText>{link.label}</RollText>
+            </motion.a>
           ))}
-          <a
+          <motion.a
             href="#contact"
-            className="ml-1 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-black transition-colors hover:bg-zinc-200"
+            initial="rest"
+            whileHover="hover"
+            animate="rest"
+            className="ml-1 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-black transition-colors hover:bg-ember hover:text-black"
           >
-            {t.nav.contact}
-          </a>
+            <RollText>{t.nav.contact}</RollText>
+          </motion.a>
         </div>
       </nav>
     </header>

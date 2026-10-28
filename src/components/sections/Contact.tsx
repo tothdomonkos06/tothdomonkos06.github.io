@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useMotionTemplate, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Check, Copy, Send } from "lucide-react";
 import { EMAIL, FORMSPREE_ENDPOINT, SOCIALS } from "@/lib/site";
 import { Reveal } from "@/components/shared/Reveal";
@@ -15,6 +15,11 @@ export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const { lang } = useLang();
   const t = useT().contact;
+  const sectionRef = useRef<HTMLElement>(null);
+  // A circle grows up from the bottom edge as the section scrolls in.
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "start 0.15"] });
+  const radius = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const clipPath = useMotionTemplate`circle(${radius}% at 50% 100%)`;
 
   const copyEmail = async () => {
     try {
@@ -45,10 +50,11 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative scroll-mt-24 overflow-hidden border-t border-white/[0.06]">
-      <div
+    <section id="contact" ref={sectionRef} className="relative scroll-mt-24 overflow-hidden">
+      <motion.div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 h-[480px] w-[900px] -translate-x-1/2 rounded-full bg-white/[0.04] blur-[120px]"
+        style={{ clipPath }}
+        className="pointer-events-none absolute inset-0 bg-zinc-950 bg-[radial-gradient(ellipse_60%_50%_at_20%_100%,rgba(255,74,0,0.22),transparent),radial-gradient(ellipse_50%_40%_at_90%_10%,rgba(210,255,244,0.08),transparent)]"
       />
       <div className="relative mx-auto grid max-w-6xl gap-16 px-6 py-28 sm:py-36 lg:grid-cols-2">
         <Reveal>
@@ -75,10 +81,11 @@ export function Contact() {
           <button
             type="button"
             onClick={copyEmail}
+            data-cursor={t.copy}
             className="group mt-10 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] py-2 pl-5 pr-2 text-sm text-zinc-200 transition-colors hover:border-white/25"
           >
             {EMAIL}
-            <span className="grid size-8 place-items-center rounded-full bg-white text-black">
+            <span className="grid size-8 place-items-center rounded-full bg-ember text-black transition-transform group-hover:rotate-12">
               {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
             </span>
           </button>
@@ -131,7 +138,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black transition-colors hover:bg-zinc-200 disabled:opacity-60"
+                className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black transition-colors hover:bg-ember disabled:opacity-60"
               >
                 {status === "sending" ? t.sending : t.send}
                 <Send className="size-4" />

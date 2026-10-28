@@ -6,12 +6,15 @@ import { ArrowDown, ArrowRight } from "lucide-react";
 import FlowField from "@/components/kokonutui/flow-field";
 import { Magnetic } from "@/components/shared/Magnetic";
 import { useLang, useT } from "@/lib/i18n";
+import { useIntroDone } from "@/lib/intro";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 20, filter: "blur(8px)" },
-  animate: { opacity: 1, y: 0, filter: "blur(0px)" },
+const HIDDEN = { opacity: 0, y: 20, filter: "blur(8px)" };
+// Nothing plays until the intro curtain has lifted (`go`).
+const fadeUp = (delay: number, go: boolean) => ({
+  initial: HIDDEN,
+  animate: go ? { opacity: 1, y: 0, filter: "blur(0px)" } : HIDDEN,
   transition: { duration: 0.9, delay, ease: EASE },
 });
 
@@ -21,9 +24,11 @@ function FlipLetters({
   delay,
   className,
   letterClassName,
+  go,
 }: {
   text: string;
   delay: number;
+  go: boolean;
   className?: string;
   letterClassName?: string;
 }) {
@@ -39,7 +44,7 @@ function FlipLetters({
                 key={i}
                 className={`inline-block origin-bottom ${letterClassName ?? ""}`}
                 initial={{ opacity: 0, rotateX: -95, y: "0.4em", filter: "blur(10px)" }}
-                animate={{ opacity: 1, rotateX: 0, y: "0em", filter: "blur(0px)" }}
+                animate={go ? { opacity: 1, rotateX: 0, y: "0em", filter: "blur(0px)" } : { opacity: 0, rotateX: -95, y: "0.4em", filter: "blur(10px)" }}
                 transition={{ duration: 1, delay: delay + i * 0.035, ease: EASE }}
               >
                 {ch}
@@ -64,12 +69,26 @@ export function Hero() {
   const filter = useTransform(blur, (b) => `blur(${b}px)`);
   const { lang } = useLang();
   const t = useT();
+  const go = useIntroDone();
 
   return (
     <section id="top" ref={ref} className="relative flex min-h-svh items-center justify-center overflow-hidden bg-black">
       {/* Wind streamlines behind the content. The canvas takes its colour from
           the text colour; the cursor parts the streams, a click sends a gust. */}
       <FlowField className="text-zinc-300" density={1.1} speed={0.7} />
+      {/* Two slow, blurred colour blobs: ember and mint, very low key. */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute left-[12%] top-[18%] size-[38vw] rounded-full bg-ember/25 blur-[120px]"
+        animate={{ x: [0, 80, -40, 0], y: [0, 50, 90, 0], scale: [1, 1.15, 0.95, 1] }}
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute bottom-[10%] right-[8%] size-[30vw] rounded-full bg-mint/15 blur-[120px]"
+        animate={{ x: [0, -70, 30, 0], y: [0, -60, -20, 0], scale: [1, 0.9, 1.1, 1] }}
+        transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
+      />
       {/* Darkens the middle so the headline stays readable over the wind. */}
       <div
         aria-hidden
@@ -81,35 +100,36 @@ export function Hero() {
           className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 pt-24 text-center"
         >
           <motion.div
-            {...fadeUp(0.2)}
+            {...fadeUp(0.05, go)}
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-xs text-zinc-400 backdrop-blur-sm"
           >
             <span className="relative flex size-1.5">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-              <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-ember opacity-60" />
+              <span className="relative inline-flex size-1.5 rounded-full bg-ember" />
             </span>
             {t.hero.badge}
           </motion.div>
 
           <h1 className="text-balance text-[2.6rem] font-semibold leading-[1.02] tracking-tighter sm:text-7xl md:text-8xl">
-            <FlipLetters key={`a-${lang}`} text={t.hero.line1} delay={0.3} />
+            <FlipLetters key={`a-${lang}`} text={t.hero.line1} delay={0.15} go={go} />
             <FlipLetters
               key={`b-${lang}`}
               text={t.hero.line2}
-              delay={0.75}
+              delay={0.5}
+              go={go}
               className="mt-2 pb-2"
-              letterClassName="bg-gradient-to-b from-zinc-200 to-zinc-600 bg-clip-text text-transparent"
+              letterClassName="bg-gradient-to-b from-white via-ember-soft to-ember bg-clip-text text-transparent"
             />
           </h1>
 
           <motion.p
-            {...fadeUp(1.3)}
+            {...fadeUp(1.0, go)}
             className="mt-8 max-w-xl text-pretty text-base leading-relaxed text-zinc-400 sm:text-lg"
           >
             {t.hero.intro}
           </motion.p>
 
-          <motion.div {...fadeUp(1.45)} className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <motion.div {...fadeUp(1.15, go)} className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <Magnetic>
               <a
                 href="#work"
@@ -134,8 +154,8 @@ export function Hero() {
           href="#work"
           aria-label={t.hero.scroll}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
+          animate={{ opacity: go ? 1 : 0 }}
+          transition={{ delay: go ? 1.6 : 0, duration: 1 }}
           className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-zinc-600 transition-colors hover:text-white"
         >
           <ArrowDown className="size-5 animate-bounce" />

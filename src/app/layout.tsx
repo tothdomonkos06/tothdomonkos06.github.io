@@ -6,6 +6,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { LanguageProvider } from "@/lib/i18n";
+import { Loader } from "@/components/layout/Loader";
+import { Cursor } from "@/components/layout/Cursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,9 +44,12 @@ export default function RootLayout({
       <body className="min-h-svh bg-black text-zinc-100">
         <LanguageProvider>
           <SmoothScroll>
+            <Loader />
+            <Cursor />
             <Navbar />
             {children}
             <Footer />
+            <div aria-hidden className="grain" />
           </SmoothScroll>
         </LanguageProvider>
       </body>
