@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ArrowRight } from "lucide-react";
-import BackgroundPaths from "@/components/kokonutui/background-paths";
+import FlowField from "@/components/kokonutui/flow-field";
 import { Magnetic } from "@/components/shared/Magnetic";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -63,14 +63,16 @@ export function Hero() {
   const filter = useTransform(blur, (b) => `blur(${b}px)`);
 
   return (
-    <section id="top" ref={ref}>
-      <BackgroundPaths
-        className="min-h-svh bg-black text-white dark:bg-black dark:text-white"
-        count={54}
-        angle={-8}
-        speed={1}
-        wave={1}
-      >
+    <section id="top" ref={ref} className="relative flex min-h-svh items-center justify-center overflow-hidden bg-black">
+      {/* Wind streamlines behind the content. The canvas takes its colour from
+          the text colour; the cursor parts the streams, a click sends a gust. */}
+      <FlowField className="text-zinc-300" density={1.1} speed={0.7} />
+      {/* Darkens the middle so the headline stays readable over the wind. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_50%_50%,rgba(0,0,0,0.85),transparent)]"
+      />
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent" />
         <motion.div
           style={{ y, scale, opacity, filter }}
           className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 pt-24 text-center"
@@ -135,7 +137,6 @@ export function Hero() {
         >
           <ArrowDown className="size-5 animate-bounce" />
         </motion.a>
-      </BackgroundPaths>
     </section>
   );
 }
