@@ -1,49 +1,62 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Terminal } from "lucide-react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/contact", label: "Contact" },
+const LINKS = [
+  { href: "#work", label: "Work" },
+  { href: "#about", label: "About" },
+  { href: "#stack", label: "Stack" },
 ];
 
 export function Navbar() {
-  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="w-full px-margin md:px-gutter max-w-screen-xl mx-auto py-sm flex justify-between items-center border-b border-outline-variant relative z-10">
-      <Link href="/" className="flex items-center gap-xs font-label-sm text-label-sm text-primary uppercase tracking-widest group">
-        <Terminal size={18} className="group-hover:scale-110 transition-transform" />
-        <span className="hidden sm:inline">TD_System</span>
-      </Link>
-      
-      <nav className="flex gap-sm md:gap-md">
-        {navLinks.map((link) => {
-          const isActive = pathname === link.href;
-          return (
-            <Link
+    <header className="pointer-events-none fixed inset-x-0 top-4 z-50 flex justify-center px-4">
+      <nav
+        className={cn(
+          "pointer-events-auto flex w-full max-w-3xl items-center justify-between rounded-full border px-2 py-2 transition-all duration-500",
+          scrolled
+            ? "border-white/10 bg-zinc-950/70 shadow-[0_8px_32px_rgba(0,0,0,0.6)] backdrop-blur-xl"
+            : "border-transparent bg-transparent"
+        )}
+      >
+        <a
+          href="#top"
+          className="flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium text-white"
+          aria-label="Tóth Domonkos, back to top"
+        >
+          <span className="grid size-6 place-items-center rounded-full bg-white font-mono text-[10px] font-bold text-black">
+            TD
+          </span>
+          <span className="hidden sm:inline">Tóth Domonkos</span>
+        </a>
+
+        <div className="flex items-center gap-1">
+          {LINKS.map((link) => (
+            <a
               key={link.href}
               href={link.href}
-              className={`relative font-code-md text-code-md px-xs py-base transition-colors ${
-                isActive ? "text-primary" : "text-on-surface-variant hover:text-on-surface"
-              }`}
+              className="rounded-full px-3 py-1.5 text-sm text-zinc-400 transition-colors hover:bg-white/5 hover:text-white"
             >
               {link.label}
-              {isActive && (
-                <motion.div
-                  layoutId="navbar-indicator"
-                  className="absolute bottom-0 left-0 w-full h-[2px] bg-primary rounded-full"
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-              )}
-            </Link>
-          );
-        })}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="ml-1 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-black transition-colors hover:bg-zinc-200"
+          >
+            Contact
+          </a>
+        </div>
       </nav>
     </header>
   );

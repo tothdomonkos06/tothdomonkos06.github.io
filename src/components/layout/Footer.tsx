@@ -1,17 +1,32 @@
+import { ArrowUp } from "lucide-react";
+import { SOCIALS } from "@/lib/site";
+
 export function Footer() {
   return (
-    <footer className="w-full border-t border-outline-variant py-md mt-auto relative z-10 bg-surface-container-lowest/50 backdrop-blur-sm">
-      <div className="max-w-screen-xl mx-auto px-margin md:px-gutter flex flex-col md:flex-row justify-between items-center gap-sm">
-        <div className="font-code-md text-[12px] text-on-surface-variant">
-          &copy; {new Date().getFullYear()} Tóth Domonkos. All rights reserved.
-        </div>
-        <div className="font-code-md text-[12px] text-on-surface-variant flex gap-sm">
-          <span>Budapest, HU</span>
-          <span className="text-outline-variant">|</span>
-          <span className="text-primary flex items-center gap-[4px]">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse inline-block" /> 
-            System Online
-          </span>
+    <footer className="border-t border-white/[0.06] bg-black">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          © {new Date().getFullYear()} Tóth Domonkos. Built with Next.js, Tailwind CSS and Kokonut UI.
+        </p>
+        <div className="flex items-center gap-5">
+          {SOCIALS.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+            >
+              {s.label}
+            </a>
+          ))}
+          <a
+            href="#top"
+            className="grid size-8 place-items-center rounded-full border border-white/10 text-zinc-400 transition-colors hover:border-white/30 hover:text-white"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="size-4" />
+          </a>
         </div>
       </div>
     </footer>
