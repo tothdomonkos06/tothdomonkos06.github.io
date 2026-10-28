@@ -66,7 +66,7 @@ export function Navbar() {
             initial="rest"
             whileHover="hover"
             animate="rest"
-            className="ml-1 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-black transition-colors hover:bg-ember hover:text-black"
+            className="ml-1 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-black transition-colors hover:bg-tangerine hover:text-black"
           >
             <RollText>{t.nav.contact}</RollText>
           </motion.a>

@@ -76,16 +76,16 @@ export function Hero() {
       {/* Wind streamlines behind the content. The canvas takes its colour from
           the text colour; the cursor parts the streams, a click sends a gust. */}
       <FlowField className="text-zinc-300" density={1.1} speed={0.7} />
-      {/* Two slow, blurred colour blobs: ember and mint, very low key. */}
+      {/* Two slow, blurred colour blobs: wine and sky, very low key. */}
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute left-[12%] top-[18%] size-[38vw] rounded-full bg-ember/25 blur-[120px]"
+        className="pointer-events-none absolute left-[12%] top-[18%] size-[38vw] rounded-full bg-wine/50 blur-[120px]"
         animate={{ x: [0, 80, -40, 0], y: [0, 50, 90, 0], scale: [1, 1.15, 0.95, 1] }}
         transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute bottom-[10%] right-[8%] size-[30vw] rounded-full bg-mint/15 blur-[120px]"
+        className="pointer-events-none absolute bottom-[10%] right-[8%] size-[30vw] rounded-full bg-sky/10 blur-[120px]"
         animate={{ x: [0, -70, 30, 0], y: [0, -60, -20, 0], scale: [1, 0.9, 1.1, 1] }}
         transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -104,8 +104,8 @@ export function Hero() {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-xs text-zinc-400 backdrop-blur-sm"
           >
             <span className="relative flex size-1.5">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-ember opacity-60" />
-              <span className="relative inline-flex size-1.5 rounded-full bg-ember" />
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-tangerine opacity-60" />
+              <span className="relative inline-flex size-1.5 rounded-full bg-tangerine" />
             </span>
             {t.hero.badge}
           </motion.div>
@@ -118,7 +118,7 @@ export function Hero() {
               delay={0.5}
               go={go}
               className="mt-2 pb-2"
-              letterClassName="bg-gradient-to-b from-white via-ember-soft to-ember bg-clip-text text-transparent"
+              letterClassName="bg-gradient-to-b from-white via-butter to-tangerine bg-clip-text text-transparent"
             />
           </h1>
 

@@ -122,7 +122,6 @@ const hu = {
     source: "Forráskód",
     video: "Videó",
     screenshot: "képernyőkép",
-    open: "Megnézem",
     openNewTab: "Megnyitás új lapon",
     close: "Bezárás",
     tryIt: "Próbáld ki itt helyben",
@@ -160,7 +159,6 @@ const hu = {
     intro:
       "Gyakornoki hely, projektötlet, vagy csak egy kérdés valamelyik appommal kapcsolatban? Írj, és válaszolok.",
     copied: "Vágólapra másolva",
-    copy: "Másol",
     name: "Név",
     namePh: "A neved",
     email: "E-mail",
@@ -236,7 +234,6 @@ const en: Dict = {
     source: "Source code",
     video: "Video",
     screenshot: "screenshot",
-    open: "Open",
     openNewTab: "Open in new tab",
     close: "Close",
     tryIt: "Try it right here",
@@ -274,7 +271,6 @@ const en: Dict = {
     intro:
       "Internship, a project idea, or just a question about one of my apps? Drop me a message and I'll get back to you.",
     copied: "Copied to clipboard",
-    copy: "Copy",
     name: "Name",
     namePh: "Your name",
     email: "Email",

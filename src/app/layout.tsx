@@ -7,7 +7,6 @@ import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { LanguageProvider } from "@/lib/i18n";
 import { Loader } from "@/components/layout/Loader";
-import { Cursor } from "@/components/layout/Cursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,12 +39,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="hu" className={`dark ${geistSans.variable} ${geistMono.variable} antialiased`}>
+    // The inline script below may add a class before hydration.
+    <html lang="hu" suppressHydrationWarning className={`dark ${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <head>
+        {/* Runs before first paint: a visitor who has already seen the intro
+            loader in this tab (or asked for ?nomotion) never sees it flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem("intro-seen")==="1"||location.search.indexOf("nomotion")>-1)document.documentElement.classList.add("intro-seen")}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="min-h-svh bg-black text-zinc-100">
         <LanguageProvider>
           <SmoothScroll>
             <Loader />
-            <Cursor />
             <Navbar />
             {children}
             <Footer />

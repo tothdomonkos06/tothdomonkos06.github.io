@@ -35,13 +35,12 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Accent colours borrowed from earlier projects: density's ember orange and
-   snitt's mint. Used sparingly on a black-and-white base. */
+/* Accent colours, used sparingly on a black-and-white base. */
 @theme {
-  --color-ember: #ff4a00;
-  --color-ember-soft: #ff7a45;
-  --color-mint: #d2fff4;
-  --color-violet: #a78bfa;
+  --color-sky: #bedeff;
+  --color-butter: #fff2a7;
+  --color-tangerine: #ffa500;
+  --color-wine: #930031;
 }
 
 /* The site is dark-only: black canvas, zinc surfaces, white as the accent. */
@@ -80,7 +79,7 @@
     @apply bg-background text-foreground;
   }
   ::selection {
-    background: #ff4a00;
+    background: #ffa500;
     color: #000;
   }
 }
@@ -125,19 +124,45 @@ html.lenis body {
   }
 }
 
-/* With the custom cursor active, hide the system one (fields keep a caret). */
-html.has-cursor,
-html.has-cursor a,
-html.has-cursor button,
-html.has-cursor [role="button"] {
-  cursor: none;
-}
-html.has-cursor input,
-html.has-cursor textarea {
-  cursor: text;
+/* Returning visitors (set by the inline script in layout) skip the loader,
+   so it never flashes before React hydrates. */
+html.intro-seen [data-loader] {
+  display: none;
 }
 
-/* Film grain over everything: a nod to density's analogue look. */
+/* Loader counter and bar run in CSS from the first paint, independent of
+   when the JavaScript arrives. */
+@property --loader-n {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 0;
+}
+.loader-count {
+  counter-reset: loader var(--loader-n);
+  animation: loader-count 1.3s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+.loader-count::after {
+  content: counter(loader);
+}
+@keyframes loader-count {
+  to {
+    --loader-n: 100;
+  }
+}
+.loader-bar {
+  transform-origin: left;
+  animation: loader-bar 1.3s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+@keyframes loader-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Film grain over everything. */
 .grain {
   pointer-events: none;
   position: fixed;

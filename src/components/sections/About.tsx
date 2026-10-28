@@ -21,7 +21,7 @@ export function About() {
       <div className="grid gap-4 md:grid-cols-6">
         <Reveal className="md:col-span-4">
           <Tile className="h-full">
-            <TileLabel icon={<GraduationCap className="size-4 text-violet" />}>{a.education}</TileLabel>
+            <TileLabel icon={<GraduationCap className="size-4 text-butter" />}>{a.education}</TileLabel>
             <h3 className="mt-6 text-2xl font-semibold tracking-tight text-white">{a.school}</h3>
             <p className="mt-2 text-zinc-400">{a.degree}</p>
             <div className="mt-8 flex flex-wrap gap-2">
@@ -43,7 +43,7 @@ export function About() {
               </p>
               <div className="mt-6 h-1 overflow-hidden rounded-full bg-white/[0.06]">
                 <motion.div
-                  className="h-full origin-left rounded-full bg-gradient-to-r from-ember to-ember-soft"
+                  className="h-full origin-left rounded-full bg-gradient-to-r from-wine to-tangerine"
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 0.3 }}
                   viewport={{ once: true }}
@@ -57,7 +57,7 @@ export function About() {
 
         <Reveal className="md:col-span-3">
           <Tile className="h-full">
-            <TileLabel icon={<Timer className="size-4 text-ember" />}>{a.running}</TileLabel>
+            <TileLabel icon={<Timer className="size-4 text-tangerine" />}>{a.running}</TileLabel>
             <h3 className="mt-6 text-xl font-semibold text-white">{a.runningTitle}</h3>
             <p className="mt-3 leading-relaxed text-zinc-400">{a.runningText}</p>
           </Tile>
@@ -65,9 +65,9 @@ export function About() {
 
         <Reveal className="md:col-span-3" delay={0.1}>
           <Tile className="h-full">
-            <TileLabel icon={<Music className="size-4 text-mint" />}>{a.music}</TileLabel>
+            <TileLabel icon={<Music className="size-4 text-sky" />}>{a.music}</TileLabel>
             <h3 className="mt-6 flex items-baseline gap-3 text-xl font-semibold text-white">
-              <Counter to={12} className="font-mono text-5xl tracking-tighter text-mint" />
+              <Counter to={12} className="font-mono text-5xl tracking-tighter text-sky" />
               {a.musicYears}
             </h3>
             <p className="mt-3 leading-relaxed text-zinc-400">{a.musicText}</p>

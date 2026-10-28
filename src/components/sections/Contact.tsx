@@ -54,7 +54,7 @@ export function Contact() {
       <motion.div
         aria-hidden
         style={{ clipPath }}
-        className="pointer-events-none absolute inset-0 bg-zinc-950 bg-[radial-gradient(ellipse_60%_50%_at_20%_100%,rgba(255,74,0,0.22),transparent),radial-gradient(ellipse_50%_40%_at_90%_10%,rgba(210,255,244,0.08),transparent)]"
+        className="pointer-events-none absolute inset-0 bg-zinc-950 bg-[radial-gradient(ellipse_60%_50%_at_20%_100%,rgba(147,0,49,0.45),transparent),radial-gradient(ellipse_50%_40%_at_90%_10%,rgba(190,222,255,0.07),transparent)]"
       />
       <div className="relative mx-auto grid max-w-6xl gap-16 px-6 py-28 sm:py-36 lg:grid-cols-2">
         <Reveal>
@@ -81,11 +81,10 @@ export function Contact() {
           <button
             type="button"
             onClick={copyEmail}
-            data-cursor={t.copy}
             className="group mt-10 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] py-2 pl-5 pr-2 text-sm text-zinc-200 transition-colors hover:border-white/25"
           >
             {EMAIL}
-            <span className="grid size-8 place-items-center rounded-full bg-ember text-black transition-transform group-hover:rotate-12">
+            <span className="grid size-8 place-items-center rounded-full bg-tangerine text-black transition-transform group-hover:rotate-12">
               {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
             </span>
           </button>
@@ -138,7 +137,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black transition-colors hover:bg-ember disabled:opacity-60"
+                className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black transition-colors hover:bg-tangerine disabled:opacity-60"
               >
                 {status === "sending" ? t.sending : t.send}
                 <Send className="size-4" />
