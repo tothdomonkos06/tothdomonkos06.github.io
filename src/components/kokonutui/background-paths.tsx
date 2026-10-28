@@ -12,6 +12,7 @@
 
 import { type ReactNode, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
+import { motionDisabled } from "@/lib/motion";
 
 export interface BackgroundPathsProps {
   className?: string;
@@ -27,6 +28,8 @@ export interface BackgroundPathsProps {
   speed?: number;
   /** Part the lines around the cursor. */
   interactive?: boolean;
+  /** How strongly waves roll along the lines. 0 is the original ribbon. */
+  wave?: number;
 }
 
 const SAMPLES = 64;
@@ -76,6 +79,7 @@ interface Shape {
   spread: number;
   slope: number;
   interactive: boolean;
+  wave: number;
 }
 
 /**
@@ -104,7 +108,14 @@ function lineY(
   const twist = Math.cos(
     Math.PI * (u - turn) + s * (0.6 + breathe) + layer.phase
   );
-  return center + s * shape.spread * band * twist;
+  // Travelling waves rolling along the ribbon. Two frequencies so the swell
+  // never repeats exactly; each line lags a little behind its neighbour.
+  const wave =
+    shape.wave *
+    band *
+    (0.07 * Math.sin(Math.PI * 2 * (1.4 * u - t * 0.32) + s * 2.2 + layer.phase) +
+      0.035 * Math.sin(Math.PI * 2 * (3.1 * u + t * 0.21) - s * 3 + layer.phase * 2));
+  return center + s * shape.spread * band * twist + wave;
 }
 
 /** Push a point away from the cursor, vertically, with a soft falloff. */
@@ -182,6 +193,7 @@ export default function BackgroundPaths({
   angle = -8,
   speed = 1,
   interactive = true,
+  wave = 0,
 }: BackgroundPathsProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -193,14 +205,14 @@ export default function BackgroundPaths({
     if (!(root && canvas && ctx)) {
       return;
     }
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    // Site-wide policy: only `?nomotion` stills the page (see lib/motion).
+    const reduceMotion = motionDisabled();
     const shape: Shape = {
       count,
       spread,
       slope: Math.tan((angle * Math.PI) / 180),
       interactive: interactive && !reduceMotion,
+      wave,
     };
     const perLayer = Math.max(1, Math.round(count / LAYERS.length));
     const total = perLayer * LAYERS.length;
@@ -326,7 +338,7 @@ export default function BackgroundPaths({
       root.removeEventListener("pointermove", onMove);
       root.removeEventListener("pointerleave", onLeave);
     };
-  }, [count, spread, angle, speed, interactive]);
+  }, [count, spread, angle, speed, interactive, wave]);
 
   return (
     <div

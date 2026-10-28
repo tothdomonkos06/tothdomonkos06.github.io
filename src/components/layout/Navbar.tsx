@@ -37,7 +37,7 @@ export function Navbar() {
           <span className="grid size-6 place-items-center rounded-full bg-white font-mono text-[10px] font-bold text-black">
             TD
           </span>
-          <span className="hidden sm:inline">Tóth Domonkos</span>
+          <span className="inline">Tóth Domonkos</span>
         </a>
 
         <div className="flex items-center gap-1">
@@ -45,7 +45,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-full px-3 py-1.5 text-sm text-zinc-400 transition-colors hover:bg-white/5 hover:text-white"
+              className="hidden rounded-full px-3 py-1.5 text-sm text-zinc-400 transition-colors hover:bg-white/5 hover:text-white sm:inline-block"
             >
               {link.label}
             </a>

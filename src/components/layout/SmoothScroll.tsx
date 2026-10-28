@@ -2,11 +2,14 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
-import { MotionConfig } from "framer-motion";
+import { MotionConfig, motion, useScroll, useSpring } from "framer-motion";
+import { motionDisabled } from "@/lib/motion";
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
+  const still = motionDisabled();
+
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (motionDisabled()) return;
 
     const lenis = new Lenis({
       duration: 1.1,
@@ -18,5 +21,22 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     return () => lenis.destroy();
   }, []);
 
-  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
+  return (
+    <MotionConfig reducedMotion={still ? "always" : "never"}>
+      <ScrollProgress />
+      {children}
+    </MotionConfig>
+  );
+}
+
+function ScrollProgress() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.3 });
+  return (
+    <motion.div
+      aria-hidden
+      style={{ scaleX }}
+      className="fixed inset-x-0 top-0 z-[60] h-px origin-left bg-gradient-to-r from-transparent via-white to-white"
+    />
+  );
 }

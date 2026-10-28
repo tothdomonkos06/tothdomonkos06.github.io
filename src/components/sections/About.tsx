@@ -9,9 +9,8 @@ export function About() {
   return (
     <section id="about" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-28 sm:py-36">
       <SectionHeading eyebrow="02 — About" title="Engineer in training, builder by habit">
-        I&apos;m a first-year Computer Engineering student at the Budapest University of Technology
-        and Economics. I like understanding a system all the way down, and then making the part
-        people touch feel simple.
+        I&apos;m a second-year Computer Engineering student at the Budapest University of Technology
+        and Economics. Lectures cover the theory; the projects above are where I put it to work.
       </SectionHeading>
 
       <div className="grid gap-4 md:grid-cols-6">
@@ -41,12 +40,12 @@ export function About() {
                 <motion.div
                   className="h-full origin-left rounded-full bg-white"
                   initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 0.2 }}
+                  whileInView={{ scaleX: 0.3 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 />
               </div>
-              <p className="mt-3 font-mono text-xs text-zinc-500">Year 1 of 4</p>
+              <p className="mt-3 font-mono text-xs text-zinc-500">Year 2 of 4</p>
             </div>
           </Tile>
         </Reveal>

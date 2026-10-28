@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { ArrowUpRight, Check, Copy, Send } from "lucide-react";
 import { EMAIL, FORMSPREE_ENDPOINT, SOCIALS } from "@/lib/site";
 import { Reveal } from "@/components/shared/Reveal";
@@ -49,8 +50,20 @@ export function Contact() {
       <div className="relative mx-auto grid max-w-6xl gap-16 px-6 py-28 sm:py-36 lg:grid-cols-2">
         <Reveal>
           <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">04 — Contact</p>
-          <h2 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-6xl">
-            Let&apos;s build something.
+          <h2 className="text-balance text-5xl font-semibold leading-[0.95] tracking-tighter text-white sm:text-7xl">
+            {["Let's", "build", "something."].map((word, i) => (
+              <span key={word} className="mr-[0.22em] inline-block overflow-hidden pb-[0.08em] align-bottom">
+                <motion.span
+                  className="inline-block"
+                  initial={{ y: "110%", rotate: 6 }}
+                  whileInView={{ y: "0%", rotate: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.9, delay: 0.1 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  {word}
+                </motion.span>
+              </span>
+            ))}
           </h2>
           <p className="mt-6 max-w-md text-pretty text-lg leading-relaxed text-zinc-400">
             Internship, a project idea, or just a question about one of my apps. Write to me and I&apos;ll
