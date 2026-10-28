@@ -8,9 +8,9 @@ import { Reveal } from "@/components/shared/Reveal";
 
 // Each card gets its own accent, taken from earlier projects.
 const ACCENTS = [
-  { glow: "from-tangerine/25", text: "text-tangerine", ring: "ring-tangerine/30", dot: "bg-tangerine" },
-  { glow: "from-sky/20", text: "text-sky", ring: "ring-sky/25", dot: "bg-sky" },
-  { glow: "from-wine/50", text: "text-butter", ring: "ring-wine/60", dot: "bg-butter" },
+  { glow: "from-sage/25", text: "text-sage", ring: "ring-sage/30", dot: "bg-sage" },
+  { glow: "from-olive/20", text: "text-olive", ring: "ring-olive/25", dot: "bg-olive" },
+  { glow: "from-moss/50", text: "text-sand", ring: "ring-moss/60", dot: "bg-sand" },
 ];
 
 const MQ = "(min-width: 768px)";

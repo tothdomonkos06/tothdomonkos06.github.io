@@ -43,7 +43,7 @@ function ScrollProgress() {
     <motion.div
       aria-hidden
       style={{ scaleX }}
-      className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-wine via-tangerine to-butter"
+      className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-moss via-sage to-sand"
     />
   );
 }

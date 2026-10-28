@@ -37,10 +37,10 @@
 
 /* Accent colours, used sparingly on a black-and-white base. */
 @theme {
-  --color-sky: #bedeff;
-  --color-butter: #fff2a7;
-  --color-tangerine: #ffa500;
-  --color-wine: #930031;
+  --color-sand: #d9d28b;
+  --color-sage: #b2bd7e;
+  --color-olive: #8e9162;
+  --color-moss: #6a795d;
 }
 
 /* The site is dark-only: black canvas, zinc surfaces, white as the accent. */
@@ -79,7 +79,7 @@
     @apply bg-background text-foreground;
   }
   ::selection {
-    background: #ffa500;
+    background: #b2bd7e;
     color: #000;
   }
 }

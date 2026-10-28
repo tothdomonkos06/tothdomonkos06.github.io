@@ -67,7 +67,7 @@ export function Loader() {
               className="loader-count font-mono text-[22vw] font-semibold leading-none tracking-tighter text-white sm:text-[14vw]"
             />
             <div className="mb-[3vw] h-px w-1/3 overflow-hidden bg-white/10">
-              <div className="loader-bar h-full bg-gradient-to-r from-wine via-tangerine to-butter" />
+              <div className="loader-bar h-full bg-gradient-to-r from-moss via-sage to-sand" />
             </div>
           </div>
         </motion.div>

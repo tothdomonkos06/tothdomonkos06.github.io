@@ -88,7 +88,7 @@ export function Work() {
           <div className="mx-auto mt-12 flex w-full max-w-6xl items-center gap-4 px-6 font-mono text-xs text-zinc-500">
             <span>{t.work.scroll}</span>
             <div className="h-px flex-1 overflow-hidden bg-white/10">
-              <motion.div style={{ scaleX: barScale }} className="h-full origin-left bg-gradient-to-r from-tangerine to-sky" />
+              <motion.div style={{ scaleX: barScale }} className="h-full origin-left bg-gradient-to-r from-sage to-olive" />
             </div>
             <span>{t.work.count(PROJECTS.length)}</span>
           </div>
@@ -119,9 +119,9 @@ function Intro({ pinned }: { pinned: boolean }) {
 function BrowserBar({ project }: { project: Project }) {
   return (
     <div className="flex shrink-0 items-center gap-1.5 border-b border-white/[0.06] bg-zinc-900/80 px-3 py-2.5">
-      <span className="size-2 rounded-full bg-zinc-700 transition-colors group-hover:bg-tangerine" />
-      <span className="size-2 rounded-full bg-zinc-700 transition-colors delay-75 group-hover:bg-butter" />
-      <span className="size-2 rounded-full bg-zinc-700 transition-colors delay-150 group-hover:bg-sky" />
+      <span className="size-2 rounded-full bg-zinc-700 transition-colors group-hover:bg-sage" />
+      <span className="size-2 rounded-full bg-zinc-700 transition-colors delay-75 group-hover:bg-sand" />
+      <span className="size-2 rounded-full bg-zinc-700 transition-colors delay-150 group-hover:bg-olive" />
       <span className="ml-3 truncate font-mono text-[10px] text-zinc-500">{urlOf(project)}</span>
     </div>
   );
@@ -147,7 +147,7 @@ function ProjectCard({
   const rotateY = useSpring(useTransform(mx, [0, 1], [-9, 9]), { stiffness: 180, damping: 18 });
   const px = useTransform(mx, (v) => v * 100);
   const py = useTransform(my, (v) => v * 100);
-  const spotlight = useMotionTemplate`radial-gradient(480px circle at ${px}% ${py}%, rgba(255,165,0,0.10), transparent 65%)`;
+  const spotlight = useMotionTemplate`radial-gradient(480px circle at ${px}% ${py}%, rgba(178,189,126,0.10), transparent 65%)`;
 
   const open = () => {
     // Settle the tilt first so the frame grows out of a flat card.
@@ -174,7 +174,7 @@ function ProjectCard({
           mx.set(0.5);
           my.set(0.5);
         }}
-        className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/[0.08] bg-zinc-950 p-2 transition-colors duration-500 hover:border-tangerine/40"
+        className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/[0.08] bg-zinc-950 p-2 transition-colors duration-500 hover:border-sage/40"
       >
         <motion.div aria-hidden className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: spotlight }} />
 
@@ -194,7 +194,7 @@ function ProjectCard({
               className="object-cover object-left-top opacity-80 grayscale-[40%] transition-all duration-700 ease-out group-hover:scale-[1.05] group-hover:opacity-100 group-hover:grayscale-0"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent" />
-            <span className="absolute bottom-3 right-4 font-mono text-6xl font-bold tracking-tighter text-white/10 transition-colors duration-500 group-hover:text-tangerine/60">
+            <span className="absolute bottom-3 right-4 font-mono text-6xl font-bold tracking-tighter text-white/10 transition-colors duration-500 group-hover:text-sage/60">
               {String(index + 1).padStart(2, "0")}
             </span>
           </div>
@@ -209,7 +209,7 @@ function ProjectCard({
           <h3 className="text-2xl font-semibold tracking-tight text-white">
             <button type="button" onClick={open} className="inline-flex items-center gap-2 text-left after:absolute after:inset-0">
               {project.title}
-              <ArrowUpRight className="size-5 text-zinc-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-tangerine" />
+              <ArrowUpRight className="size-5 text-zinc-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-sage" />
             </button>
           </h3>
 
@@ -294,13 +294,13 @@ function ModalBody({ project, onClose }: { project: Project; onClose: () => void
         className="relative z-10 mx-auto mb-3 flex w-full max-w-6xl flex-wrap items-center gap-3"
       >
         <div className="mr-auto min-w-0">
-          <p className="font-mono text-xs text-tangerine">
+          <p className="font-mono text-xs text-sage">
             {project.kind[lang]} · {project.year}
           </p>
           <h3 className="truncate text-xl font-semibold text-white sm:text-2xl">{project.title}</h3>
         </div>
         {project.live && (
-          <a href={project.live} target="_blank" rel="noopener noreferrer" className="inline-flex h-9 items-center gap-1.5 rounded-full bg-white px-4 text-sm font-medium text-black transition-colors hover:bg-tangerine">
+          <a href={project.live} target="_blank" rel="noopener noreferrer" className="inline-flex h-9 items-center gap-1.5 rounded-full bg-white px-4 text-sm font-medium text-black transition-colors hover:bg-sage">
             {t.work.openNewTab} <ArrowUpRight className="size-4" />
           </a>
         )}
@@ -313,7 +313,7 @@ function ModalBody({ project, onClose }: { project: Project; onClose: () => void
           type="button"
           onClick={onClose}
           aria-label={t.work.close}
-          className="grid size-9 place-items-center rounded-full border border-white/15 text-white transition-all hover:rotate-90 hover:border-tangerine hover:text-tangerine"
+          className="grid size-9 place-items-center rounded-full border border-white/15 text-white transition-all hover:rotate-90 hover:border-sage hover:text-sage"
         >
           <X className="size-4" />
         </button>
@@ -324,7 +324,7 @@ function ModalBody({ project, onClose }: { project: Project; onClose: () => void
         transition={SPRING}
         onLayoutAnimationComplete={() => setReady(true)}
         style={{ borderRadius: 18 }}
-        className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col overflow-hidden border border-white/10 bg-zinc-900 shadow-[0_40px_120px_-20px_rgba(147,0,49,0.55)]"
+        className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col overflow-hidden border border-white/10 bg-zinc-900 shadow-[0_40px_120px_-20px_rgba(106,121,93,0.5)]"
       >
         <BrowserBar project={project} />
         <div className="relative flex-1 bg-zinc-950" data-lenis-prevent>
@@ -361,7 +361,7 @@ function ModalBody({ project, onClose }: { project: Project; onClose: () => void
         className="relative z-10 mx-auto mt-3 w-full max-w-6xl text-pretty text-sm text-zinc-400"
       >
         {project.description[lang]}
-        {project.live && <span className="ml-2 text-sky">· {t.work.tryIt}</span>}
+        {project.live && <span className="ml-2 text-olive">· {t.work.tryIt}</span>}
       </motion.p>
     </div>
   );
@@ -375,7 +375,7 @@ function IconLink({ href, label, children }: { href: string; label: string; chil
       rel="noopener noreferrer"
       aria-label={label}
       title={label}
-      className="grid size-9 place-items-center rounded-full border border-white/10 text-zinc-400 transition-colors hover:border-tangerine/50 hover:text-tangerine"
+      className="grid size-9 place-items-center rounded-full border border-white/10 text-zinc-400 transition-colors hover:border-sage/50 hover:text-sage"
     >
       {children}
     </a>
