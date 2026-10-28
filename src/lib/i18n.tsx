@@ -71,16 +71,16 @@ const hu = {
   hero: {
     badge: "Mérnökinformatika @ BME · Budapest",
     line1: "Tóth Domonkos",
-    line2: "szoftvereket fejleszt.",
+    line2: "mérnökinformatikus.",
     intro:
-      "Az alacsony szintű C-től a gyors, igényes webappokig. Mérnökinformatikát tanulok, valódi problémákat megoldó saját projekteken dolgozom, közben pedig maratonra edzek.",
+      "Az alacsony szintű C-től a gyors, igényes webappokig. Mérnökinformatikát tanulok, és saját projekteken dolgozom.",
     work: "Munkáim",
     contact: "Írj nekem",
     scroll: "Görgess a munkákhoz",
   },
   statement: {
-    text: "Szeretem egy rendszert egészen a bitekig megérteni, aztán azt a részét, amihez az emberek hozzányúlnak, könnyeddé tenni.",
-    highlight: ["bitekig", "könnyeddé"],
+    text: "Egy designos portfolio művészeknek, vagy professzionális weboldal vállalkozásoknak? Jöhet.",
+    highlight: ["művészeknek", "vállalkozásoknak"],
   },
   work: {
     eyebrow: "01 — Válogatott munkák",
@@ -111,13 +111,13 @@ const hu = {
     graduation: "Várható végzés",
     year: "2. év a 4-ből",
     running: "Futás",
-    runningTitle: "Több félmaraton után jöhet a maraton.",
+    runningTitle: "Hobbiból futni is szoktam.",
     runningText:
       "Szeretem a futás technikai oldalát: tempóstratégia, frissítés, adatok. Ebből a kíváncsiságból lett a Race Fuel Planner.",
     music: "Zene",
     musicTitle: "12 év ének-zenei iskolában",
     musicText:
-      "Megtanított a fegyelemre, és arra, hogyan legyek egy nagyobb egész része. A szoftveres csapatmunka nagyrészt erről szól.",
+      "Megtanított csapatként gondolkodni, és habár más írányt vett a karrierem, ezt mindenhol tudom hasznosítani.",
     stack: "03 — Stack",
   },
   contact: {
